@@ -2,7 +2,7 @@
 
 
 
-#### Plan proposé pour définir le périmètre de notre projet :
+### Plan proposé pour définir le périmètre de notre projet :
 
 1. Présentation de l’architecture globale du système (avec la situation de chaque V)
 2. Description du périmètre de notre V, en commençant par définir l’idée générale (en ayant à l’esprit que la notion centrale est la recommandation, sur du profilage), avec quelques “use case” (chaque “use case” appartenant à un groupe de “produits/services” bancaires différent) présenté comme des “user story” (donc sans rentrer dans des choses techniques)
@@ -10,7 +10,7 @@
 4. Donner quelques pistes à propos des techniques de profilage (faire quelques recherches à ce sujet)
 
 
-#### 1.	Architecture et périmètre globaux du système (avec la situation de chaque variante)
+### 1.	Architecture et périmètre globaux du système (avec la situation de chaque variante)
 
 [Architecture](https://github.com/FrereB/AL1920/blob/master/Architecture.png "architecture")
 
@@ -39,17 +39,17 @@ Voici le scope choisi pour le projet sous forme d’user story, nous détaillero
 
 Concernant la création de compte, un utilisateur possédera un profil sur l’application, où il pourra avoir accès à un ou plusieurs comptes bancaires.
 
-#### 2.	Périmètre de notre variante
+### 2.	Périmètre de notre variante
 
 Notre variante consiste à intégrer un aspect webmarketing au projet à travers la conception, la mise en œuvre et la maintenance d’un système de recommandation de produits ou services de la banque, en se basant sur le profil des clients. Il peut être intéressant de nous tenir informés de ce que font les autres équipes, car elles proposeront peut-être des produits ou services pouvant être recommandés dans notre projet.
 
-##### 2.1	Nos utilisateurs
+#### 2.1	Nos utilisateurs
 
 Le système sera utilisé par les personnes suivantes :
 * Un client de la banque (professionnel comme particulier)
 * Un conseiller bancaire
 
-##### 2.2	Ce que nous avons l’intention de couvrir d'un point de vue fonctionnel
+#### 2.2	Ce que nous avons l’intention de couvrir d'un point de vue fonctionnel
 
 Dans le cadre de notre variante (variante 5), nous voulons mettre en place les user story suivantes :
 
@@ -63,14 +63,14 @@ Dans le cadre de notre variante (variante 5), nous voulons mettre en place les u
 
 Quelle que soit la fonction, la recommandation doit être appropriée.
 
-##### 2.3	Ce qui est en dehors du périmètre
+#### 2.3	Ce qui est en dehors du périmètre
 
 Les produits proposés à la suite d’une demande d’un client ou directement par le conseiller sont en dehors du périmètre. En effet, il faut toujours avoir à l’esprit le terme principal du sujet de notre variante, qui est la “recommandation”, et qui se fera de façon automatique.
 
 La gestion complète des produits n’entre pas dans le périmètre de notre projet car nous nous concentrerons sur la partie bancaire principalement. Nous implémenterons donc seulement une gestion simplifiée des produits afin de démontrer l’aspect principal de recommandation.
 
 
-#### 3.	Liste des types de produit et service auxquels nous avons déjà pensé
+### 3.	Liste des types de produit et service auxquels nous avons déjà pensé
 
 Chaque “USV” précédemment formulée appartient à l’un de ces types :
 
@@ -81,7 +81,7 @@ Chaque “USV” précédemment formulée appartient à l’un de ces types :
 * Services de notification (en cas d’opération suspecte sur un compte, en cas de comportement à risque…)
 
 
-#### 4.	Quelques pistes à propos des méthodes de profilage
+### 4.	Quelques pistes à propos des méthodes de profilage
 
 Les algorithmes de profilage que nous mettrons en œuvre prendront en compte des données “statiques”, telles que les noms, âges ou encore les localisations, et des données “dynamiques”, telles que les historiques des clients (afin de dégager des habitudes de consommation).
 
