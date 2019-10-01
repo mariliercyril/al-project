@@ -12,7 +12,7 @@
 
 ####1.	Architecture et périmètre globaux du système (avec la situation de chaque variante)
 
-
+![alt text](https://github.com/FrereB/AL1920/blob/master/Architecture.pdf "architecture")
 
 Nous avons choisi d’afficher sur notre schéma d’architecture les endroits où les différentes variantes peuvent entrer en effet. Cela nous permet d’avoir une vision plus globale du projet et de comprendre du mieux possible les différents aspects du système à développer.
 
