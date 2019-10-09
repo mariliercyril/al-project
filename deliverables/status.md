@@ -14,6 +14,6 @@ Week 40 : green
 
 ### Week 41
 
-* Cette semaine nous avons réfléchi, étudié et commencé le diagramme de composants. Nous avons revu les utilisateurs (ajout prospect)
-* Objectifs de la semaine : Finir le diagramme de composants. Créer des scénarios pour vérifier que le tout est cohérent. Réfléchir aux choix technologiques
+* Cette semaine nous avons réfléchi, étudié et commencé le diagramme de composants. Nous avons revu les utilisateurs (ajout du cas d'un prospect).
+* Objectifs de la semaine : Finir le diagramme de composants. Créer des scénarios pour vérifier que le tout est cohérent. Réfléchir aux choix technologiques.
 * Nous ne bloquons sur aucun point pour le moment.
