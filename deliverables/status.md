@@ -2,14 +2,14 @@
 
 
 
-Week 41 ![](https://placehold.it/15/00ff00/000000?text=+)
+Week 41 ![flag](https://placehold.it/15/00ff00/000000?text=+)
 -
 
 * Cette semaine nous avons réfléchi, étudié et commencé le diagramme de composants. Nous avons revu les utilisateurs (ajout du cas d'un prospect).
 * Objectifs de la semaine : Finir le diagramme de composants. Créer des scénarios pour vérifier que le tout est cohérent. Réfléchir aux choix technologiques.
 * Nous ne bloquons sur aucun point pour le moment.
 
-Week 40 ![](https://placehold.it/15/00ff00/000000?text=+)
+Week 40 ![flag](https://placehold.it/15/00ff00/000000?text=+)
 -
 
 * Cette semaine nous avons défriché le sujet. Nous nous sommes concentrés sur le cœur dans un premier temps puis nous nous sommes penchés sur notre variante dans un deuxième temps. Cela nous a permis de déterminer le périmètre de notre projet.
