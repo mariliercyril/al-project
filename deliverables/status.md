@@ -2,6 +2,13 @@
 
 
 
+Week 42 ![flag](https://placehold.it/15/00ff00/000000?text=+)
+-
+
+* Cette semaine nous avons ajouté des composants qui manquaient au diagramme de composants. Nous avons choisi les technologies que nous allons utiliser, défini les interfaces entre les composants et mis en place le projet (créé une branche de développement, mis en place le projet au sens de Maven, avec les dépendances pour Spring).
+* Objectifs de la semaine 43 : finir la mise en place du projet (introduction de Docker) et implémenter un "walking skeleton".
+* Nous ne bloquons sur aucun point pour le moment.
+
 Week 41 ![flag](https://placehold.it/15/00ff00/000000?text=+)
 -
 
