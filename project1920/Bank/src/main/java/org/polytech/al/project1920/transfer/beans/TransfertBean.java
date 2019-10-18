@@ -2,9 +2,10 @@ package org.polytech.al.project1920.transfer.beans;
 
 import org.polytech.al.project1920.bankaccount.beans.BankAccountBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Component
 public class TransfertBean {
 
     private final

@@ -10,14 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ManageUserWebService implements IManageUser {
-
-    //private TransfertBean transfertBean;
-
-    /*@Autowired
-    public ManageUserWebService(TransfertBean transfertBean) {
-        this.transfertBean = transfertBean;
-    }*/
-
     private final
     BankAccountBean bankAccountBean;
 

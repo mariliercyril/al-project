@@ -3,10 +3,12 @@ package org.polytech.al.project1920.bankaccount.beans;
 import org.polytech.al.project1920.bankaccount.model.BankAccountStorage;
 import org.polytech.al.project1920.bankaccount.model.BankAccountStorageDB;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Component
 public class BankAccountBean {
+
     private final
     BankAccountStorageDB bankAccountStorageDB;
 
@@ -20,7 +22,6 @@ public class BankAccountBean {
         BankAccountStorage a = new BankAccountStorage(senderAccountId);
         bankAccountStorageDB.save(a);
         System.out.println(bankAccountStorageDB.findAll().size());
-
         return true;
     }
 
