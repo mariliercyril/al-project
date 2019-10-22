@@ -7,7 +7,7 @@ install:
   - mvn clean install
 
 script:
-  - docker-compose up --build
+  - docker-compose up -d --build
 
 notifications:
   email:
