@@ -2,9 +2,10 @@ package org.polytech.al.project1920.bankaccount.beans;
 
 import org.polytech.al.project1920.bankaccount.model.BankAccountStorage;
 import org.polytech.al.project1920.bankaccount.model.BankAccountStorageDB;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 @Component
 public class BankAccountBean {
@@ -14,10 +15,11 @@ public class BankAccountBean {
 
     @Autowired
     public BankAccountBean(BankAccountStorageDB bankAccountStorageDB) {
+
         this.bankAccountStorageDB = bankAccountStorageDB;
     }
 
-    public boolean getInfos(String senderAccountId){
+    public boolean getInfos(String senderAccountId) {
 
         BankAccountStorage a = new BankAccountStorage(senderAccountId);
         bankAccountStorageDB.save(a);
@@ -25,7 +27,14 @@ public class BankAccountBean {
         return true;
     }
 
-    public boolean canPayTransfert(String senderAccountId, double amount){
+    public boolean canPayTransfert(String senderAccountId, double amount) {
+
         return true;
     }
+
+    public boolean canPayCard(String senderAccountId, double amount) {
+
+        return true;
+    }
+
 }
