@@ -2,6 +2,13 @@
 
 
 
+Week 43 ![flag](https://placehold.it/15/ffff00/000000?text=+)
+-
+
+* Cette semaine nous avons fait les choix technologiques principaux, créé une majorité des composants (manquent seulement les composants du bloc du système de recommandation, à ce jour) ; en revanche, nous n'avons pas encore une véritable commmunication entre ces composants (en fait, nous n'avons mis en place qu'une connexion, au moyen d'un "docker-compose", entre eux) et, dès lors, nous n'avons fait qu'initier un "walking skeleton". En outre, en plus de Docker, nous avons introduit un "build" (à chaque "push", entre autres) par Travis CI. Rien n'a été ajouté au contenu du rapport d'architecture.
+* Objectifs de la semaine 44 : mettre en place une véritable communication entre les composants, de sorte à obtenir un "walking skeleton".
+* Nous ne bloquons sur aucun point pour le moment, bien que nous ayons pris du retard.
+
 Week 42 ![flag](https://placehold.it/15/00ff00/000000?text=+)
 -
 
