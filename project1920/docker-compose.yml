@@ -62,3 +62,12 @@ services:
     - mongodb
     environment:
       spring.data.mongodb.uri: mongodb://mongodb:27017/bank
+  Recommandation:
+    build : ./Recommandation
+    image: python/recommandation
+    ports:
+    - 8000:80
+    links:
+    - mongodb
+    environment:
+      spring.data.mongodb.uri: mongodb://mongodb:27017/recommandation

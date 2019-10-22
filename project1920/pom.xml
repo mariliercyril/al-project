@@ -18,13 +18,6 @@
         <module>Bank</module>
         <module>Account</module>
         <module>Catalog</module>
-        <!--module>ejbaptisteModulePackingScheduler</module>
-        <module>ejbaptisteModuleDeliveryScheduler</module>
-        <module>ejbaptisteModuleNotificationSender</module>
-        <module>ejbaptisteModuleDroneSwarmPilotment</module>
-        <module>ejbaptisteModuleDroneManagment</module>
-        <module>ejbaptisteModuleColdStorage</module>
-        <module>ejbaptisteModuleAccount</module-->
     </modules>
 
     <dependencies>
