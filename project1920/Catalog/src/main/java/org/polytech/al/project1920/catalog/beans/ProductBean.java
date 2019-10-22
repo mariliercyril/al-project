@@ -10,8 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductBean {
 
-	private final
-	ProductStorageDB productStorageDB;
+	private final ProductStorageDB productStorageDB;
 
 	@Autowired
 	public ProductBean(ProductStorageDB productStorageDB) {
