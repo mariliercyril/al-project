@@ -1,0 +1,17 @@
+language: java
+
+before_install:
+  - cd project1920
+
+install:
+  - mvn clean install
+
+script:
+  - docker-compose up --build
+
+notifications:
+  email:
+    recipients:
+      - cyril.marilier@etu.univ-cotedazur.fr
+    #on_success: change # value by default
+    on_failure: change
