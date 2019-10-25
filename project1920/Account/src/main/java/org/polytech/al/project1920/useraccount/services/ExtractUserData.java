@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class ExtractUserData implements IExtractUserData {
 
@@ -17,6 +19,13 @@ public class ExtractUserData implements IExtractUserData {
     @Autowired
     public ExtractUserData(ProfileBean profileBean) {
         this.profileBean = profileBean;
+    }
+
+    @Override
+    @RequestMapping(value = "/retrieveProfiles", method = RequestMethod.GET)
+    public List<Profile> retrieveProfiles() {
+        System.out.println("Retrieving all profiles");
+        return profileBean.getProfiles();
     }
 
     @Override
