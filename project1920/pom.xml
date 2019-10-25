@@ -18,6 +18,7 @@
         <module>Bank</module>
         <module>Account</module>
         <module>Catalog</module>
+        <module>IntegrationTests</module>
     </modules>
 
     <dependencies>
