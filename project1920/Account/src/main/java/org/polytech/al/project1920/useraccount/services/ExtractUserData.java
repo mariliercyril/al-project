@@ -31,9 +31,14 @@ public class ExtractUserData implements IExtractUserData {
     @Override
     @RequestMapping(value = "/retrieveUser", method = RequestMethod.GET)
     public User retrieveUser(@RequestParam String userId) {
-        System.out.println(userId);
-        System.out.println(userId);
-        System.out.println(userId);
-        return userBean.getUser(userId);
+        System.out.println("Retrieved user for userId : " + userId);
+        return userBean.getUserByUserId(userId);
+    }
+
+    @Override
+    @RequestMapping(value = "/retrieveUserById", method = RequestMethod.GET)
+    public User retrieveUserByMongoId(@RequestParam String id) {
+        System.out.println("Retrieved user for mongo id : " + id);
+        return userBean.getUserById(id);
     }
 }

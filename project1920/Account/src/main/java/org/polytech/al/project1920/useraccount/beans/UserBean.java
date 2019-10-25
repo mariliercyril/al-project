@@ -19,8 +19,12 @@ public class UserBean {
         setDB();
     }
 
-    public User getUser(String userId) {
-        return userDB.findById(userId).orElse(userDB.findAll().get(0));
+    public User getUserByUserId(String userId) {
+        return userDB.findUserByUserId(userId).orElse(userDB.findAll().get(0));
+    }
+
+    public User getUserById(String id) {
+        return userDB.findById(id).orElse(userDB.findAll().get(0));
     }
 
     public List<User> getUsers() {

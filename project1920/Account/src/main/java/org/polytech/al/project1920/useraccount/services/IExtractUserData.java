@@ -8,4 +8,6 @@ public interface IExtractUserData {
     public User retrieveUser(String userId);
 
     public List<User> retrieveUsers();
+
+    public User retrieveUserByMongoId(String id);
 }
