@@ -3,20 +3,22 @@ package org.polytech.al.project1920.useraccount.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Profile")
+@Document(collection = "User")
 
-public class Profile {
+public class User {
     @Id
     private String id;
+    private String userId;
     private int age;
     private int money;
 
-    public Profile() {
+    public User() {
     }
 
-    public Profile(int age, int money) {
+    public User(int age, int money, String userId) {
         this.age = age;
         this.money = money;
+        this.userId = userId;
     }
 
     public String getId() {
@@ -41,5 +43,13 @@ public class Profile {
 
     public void setMoney(int money) {
         this.money = money;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

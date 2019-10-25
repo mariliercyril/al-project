@@ -1,7 +1,7 @@
 package org.polytech.al.project1920.useraccount.services;
 
-import org.polytech.al.project1920.useraccount.beans.ProfileBean;
-import org.polytech.al.project1920.useraccount.model.Profile;
+import org.polytech.al.project1920.useraccount.beans.UserBean;
+import org.polytech.al.project1920.useraccount.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,26 +14,26 @@ import java.util.List;
 public class ExtractUserData implements IExtractUserData {
 
     private final
-    ProfileBean profileBean;
+    UserBean userBean;
 
     @Autowired
-    public ExtractUserData(ProfileBean profileBean) {
-        this.profileBean = profileBean;
+    public ExtractUserData(UserBean userBean) {
+        this.userBean = userBean;
     }
 
     @Override
-    @RequestMapping(value = "/retrieveProfiles", method = RequestMethod.GET)
-    public List<Profile> retrieveProfiles() {
-        System.out.println("Retrieving all profiles");
-        return profileBean.getProfiles();
+    @RequestMapping(value = "/retrieveUsers", method = RequestMethod.GET)
+    public List<User> retrieveUsers() {
+        System.out.println("Retrieving all users");
+        return userBean.getUsers();
     }
 
     @Override
-    @RequestMapping(value = "/retrieveProfile", method = RequestMethod.GET)
-    public Profile retrieveProfile(@RequestParam String profileId) {
-        System.out.println(profileId);
-        System.out.println(profileId);
-        System.out.println(profileId);
-        return profileBean.getProfile(profileId);
+    @RequestMapping(value = "/retrieveUser", method = RequestMethod.GET)
+    public User retrieveUser(@RequestParam String userId) {
+        System.out.println(userId);
+        System.out.println(userId);
+        System.out.println(userId);
+        return userBean.getUser(userId);
     }
 }

@@ -19,15 +19,15 @@ public class LoginWebService implements ILogin {
 
     @Override
     @RequestMapping(value = "/createAccount", method = RequestMethod.POST)
-    public boolean createAccount(@RequestParam String accountId, @RequestParam String password) {
+    public boolean createAccount(@RequestParam String userId, @RequestParam String password) {
         System.out.println("Created a new account in Authentication");
-        return authenticationBean.createAccount(accountId, password);
+        return authenticationBean.createAccount(userId, password);
     }
 
     @Override
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public boolean login(@RequestParam String accountId, @RequestParam String password) {
+    public boolean login(@RequestParam String userId, @RequestParam String password) {
         System.out.println("Login in Authentication");
-        return authenticationBean.login(accountId, password);
+        return authenticationBean.login(userId, password);
     }
 }
