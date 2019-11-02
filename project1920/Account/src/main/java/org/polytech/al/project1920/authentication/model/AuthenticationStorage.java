@@ -14,8 +14,7 @@ public class AuthenticationStorage {
 
     }
 
-    public AuthenticationStorage(String id, String userId, String password) {
-        this.id = id;
+    public AuthenticationStorage(String userId, String password) {
         this.userId = userId;
         this.password = password;
     }
