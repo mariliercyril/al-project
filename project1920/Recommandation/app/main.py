@@ -36,7 +36,7 @@ class RequireJSON(object):
         Recommendation().RetrieveProfileAndCalculate(profiles)
 
         resp.content_type = falcon.MEDIA_JSON
-        resp.body = json.dumps(profiles.__dict__)
+        #resp.body = json.dumps(profiles)
         resp.status = falcon.HTTP_200
 
 
@@ -48,7 +48,7 @@ app = falcon.API()
 things = RequireJSON()
 
 # things will handle all requests to the '/things' URL path
-app.add_route('/things', things)
+app.add_route('/triggerRecommendation', things)
 
 if __name__ == '__main__':
     with make_server('', 8000, app) as httpd:
