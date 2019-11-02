@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class AuthenticationBean {
@@ -17,16 +18,24 @@ public class AuthenticationBean {
     }
 
     public boolean login(String userId, String password) {
-        //TODO verify that the password is ok
-        System.out.println("User with ID " + userId + " just logged in");
-        return true;
+        Optional<AuthenticationStorage> authenticationStorage = authenticationStorageDB.findAuthenticationStorageByUserId(userId);
+        if (authenticationStorage.isPresent()) {
+            if (authenticationStorage.get().getPassword().equals(password)) {
+                System.out.println("User with ID " + userId + " just logged in");
+                return true;
+            } else {
+                System.out.println("Wrong password for account with ID " + userId + ", can't login !");
+                return false;
+            }
+        } else {
+            System.out.println("Account with ID " + userId + " doesn't exist, can't login !");
+            return false;
+        }
     }
 
     public boolean createAccount(String userId, String password) {
-        //TODO store the new account
-
-        AuthenticationStorage authenticationStorage = new AuthenticationStorage(userId, password);
         if (!authenticationStorageDB.findAuthenticationStorageByUserId(userId).isPresent()) {
+            AuthenticationStorage authenticationStorage = new AuthenticationStorage(userId, password);
             authenticationStorageDB.save(authenticationStorage);
             System.out.println("Created account for user account with ID " + userId);
 
