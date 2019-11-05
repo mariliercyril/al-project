@@ -19,8 +19,8 @@ public class LoginWebService implements ILogin {
 
     @Override
     @RequestMapping(value = "/createAccount", method = RequestMethod.POST)
-    public boolean createAccount(@RequestParam String userId, @RequestParam String password) {
-        return authenticationBean.createAccount(userId, password);
+    public boolean createAccount(@RequestParam String userId, @RequestParam String password, @RequestParam int age) {
+        return authenticationBean.createAccount(userId, password, age);
     }
 
     @Override

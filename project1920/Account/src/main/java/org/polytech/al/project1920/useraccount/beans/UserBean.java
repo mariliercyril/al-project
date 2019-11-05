@@ -16,7 +16,7 @@ public class UserBean {
     @Autowired
     public UserBean(UserDB userDB) {
         this.userDB = userDB;
-        setDB();
+//        setDB();
     }
 
     public User getUserByUserId(String userId) {
@@ -33,9 +33,9 @@ public class UserBean {
 
     private void setDB() {
         if (userDB.findAll().size() == 0) {
-            userDB.save(new User(20, 1000, "User 1"));
-            userDB.save(new User(45, 66666, "User 2"));
-            userDB.save(new User(14, 200, "User 3"));
+            userDB.save(new User(20, 1000, "User 1", "password1"));
+            userDB.save(new User(45, 66666, "User 2", "password2"));
+            userDB.save(new User(14, 200, "User 3", "password3"));
         }
     }
 }

@@ -1,7 +1,7 @@
 package org.polytech.al.project1920.authentication.beans;
 
-import org.polytech.al.project1920.authentication.model.AuthenticationStorage;
-import org.polytech.al.project1920.authentication.model.AuthenticationStorageDB;
+import org.polytech.al.project1920.useraccount.model.User;
+import org.polytech.al.project1920.useraccount.model.UserDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,17 +10,17 @@ import java.util.Optional;
 
 @Component
 public class AuthenticationBean {
-    private final AuthenticationStorageDB authenticationStorageDB;
+    private final UserDB userDB;
 
     @Autowired
-    AuthenticationBean(AuthenticationStorageDB authenticationStorageDB) {
-        this.authenticationStorageDB = authenticationStorageDB;
+    AuthenticationBean(UserDB userDB) {
+        this.userDB = userDB;
     }
 
     public boolean login(String userId, String password) {
-        Optional<AuthenticationStorage> authenticationStorage = authenticationStorageDB.findAuthenticationStorageByUserId(userId);
-        if (authenticationStorage.isPresent()) {
-            if (authenticationStorage.get().getPassword().equals(password)) {
+        Optional<User> user = userDB.findUserByUserId(userId);
+        if (user.isPresent()) {
+            if (user.get().getPassword().equals(password)) {
                 System.out.println("User with ID " + userId + " just logged in");
                 return true;
             } else {
@@ -33,18 +33,21 @@ public class AuthenticationBean {
         }
     }
 
-    public boolean createAccount(String userId, String password) {
-        if (!authenticationStorageDB.findAuthenticationStorageByUserId(userId).isPresent()) {
-            AuthenticationStorage authenticationStorage = new AuthenticationStorage(userId, password);
-            authenticationStorageDB.save(authenticationStorage);
+    public boolean createAccount(String userId, String password, int age) {
+        if (!userDB.findUserByUserId(userId).isPresent()) {
+            User User = new User(age, 0, userId, password);
+            userDB.save(User);
             System.out.println("Created account for user account with ID " + userId);
 
-            List<AuthenticationStorage> authenticationStorages = authenticationStorageDB.findAll();
+            List<User> Users = userDB.findAll();
 
-            for (AuthenticationStorage authenticationStorage1 : authenticationStorages) {
-                System.out.println(authenticationStorage1.getId());
-                System.out.println(authenticationStorage1.getUserId());
-                System.out.println(authenticationStorage1.getPassword());
+            System.out.println("Here is the list of all existing accounts : \n");
+            for (User user : Users) {
+                System.out.println("Id : " + user.getId());
+                System.out.println("UserId : " + user.getUserId());
+                System.out.println("Password : " + user.getPassword());
+                System.out.println("Age : " + user.getAge());
+                System.out.println();
             }
             return true;
         } else {
