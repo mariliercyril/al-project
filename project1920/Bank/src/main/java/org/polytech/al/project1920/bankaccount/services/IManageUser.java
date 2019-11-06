@@ -1,6 +1,7 @@
 package org.polytech.al.project1920.bankaccount.services;
 
 public interface IManageUser {
-    public boolean getInfos(String AccountId);
+    int getAmount(String userId);
 
+    void createAccount(String userId);
 }
