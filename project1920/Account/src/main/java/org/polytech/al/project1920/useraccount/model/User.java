@@ -10,13 +10,13 @@ public class User {
     private String id;
     private String userId;
     private int age;
-    private int money;
+    private float money;
     private String password;
 
     public User() {
     }
 
-    public User(int age, int money, String userId, String password) {
+    public User(int age, float money, String userId, String password) {
         this.age = age;
         this.money = money;
         this.userId = userId;
@@ -35,11 +35,11 @@ public class User {
         this.age = age;
     }
 
-    public int getMoney() {
+    public float getMoney() {
         return money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(float money) {
         this.money = money;
     }
 
