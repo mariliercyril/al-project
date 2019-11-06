@@ -6,16 +6,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TransfertBean {
-
-    private final
-    BankAccountBean bankAccountBean;
+    private final BankAccountBean bankAccountBean;
 
     @Autowired
     public TransfertBean(BankAccountBean bankAccountBean) {
         this.bankAccountBean = bankAccountBean;
     }
 
-    public boolean requestTransfer(String senderAccountId, String receiverAccountId, double amount) {
-        return bankAccountBean.canPayTransfert(senderAccountId, amount);
+    public boolean canPay(String senderId, float amount) {
+        return bankAccountBean.canPay(senderId, amount);
+    }
+
+    public void pay(String senderId, String receiverId, float amount) {
+        bankAccountBean.pay(senderId, receiverId, amount);
     }
 }

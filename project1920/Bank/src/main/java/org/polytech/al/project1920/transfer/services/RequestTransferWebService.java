@@ -19,7 +19,12 @@ public class RequestTransferWebService implements IRequestTransfert{
 
     @Override
     @RequestMapping(value = "/requestTransfer", method = RequestMethod.POST)
-    public boolean requestTransfer(@RequestParam String senderAccountId, @RequestParam String receiverAccountId, @RequestParam double amount) {
-        return transfertBean.requestTransfer(senderAccountId, receiverAccountId, amount);
+    public boolean requestTransfer(@RequestParam String senderId, @RequestParam String receiverId, @RequestParam float amount) {
+        if (transfertBean.canPay(senderId, amount)) {
+            transfertBean.pay(senderId, receiverId, amount);
+            return true;
+        }
+        System.out.println("Can't proceed payment, you don't have enough money !");
+        return false;
     }
 }

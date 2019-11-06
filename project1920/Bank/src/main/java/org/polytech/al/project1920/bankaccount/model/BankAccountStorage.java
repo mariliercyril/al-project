@@ -46,4 +46,12 @@ public class BankAccountStorage {
     public void setAmount(float amount) {
         this.amount = amount;
     }
+
+    public void addAmount(float amount) {
+        this.amount += amount;
+    }
+
+    public void removeAmount(float amount) {
+        this.amount -= amount;
+    }
 }

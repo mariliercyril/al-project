@@ -7,12 +7,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 public class ManageUserWebService implements IManageUser {
-    private final
-    BankAccountBean bankAccountBean;
+    private final BankAccountBean bankAccountBean;
 
     @Autowired
     public ManageUserWebService(BankAccountBean bankAccountBean) {
@@ -26,8 +23,14 @@ public class ManageUserWebService implements IManageUser {
     }
 
     @Override
-    @RequestMapping(value = "/createAccount", method = RequestMethod.POST)
+    @RequestMapping(value = "/createBankAccount", method = RequestMethod.POST)
     public boolean createAccount(@RequestParam String userId) {
         return bankAccountBean.createAccount(userId);
+    }
+
+    @Override
+    @RequestMapping(value = "/addMoney", method = RequestMethod.POST)
+    public boolean addMoney(@RequestParam String userId, @RequestParam float amount) {
+        return bankAccountBean.addMoney(userId, amount);
     }
 }

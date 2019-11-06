@@ -4,4 +4,6 @@ public interface IManageUser {
     Float getAmount(String userId);
 
     boolean createAccount(String userId);
+
+    boolean addMoney(String userId, float amount);
 }
