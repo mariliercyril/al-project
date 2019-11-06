@@ -5,8 +5,8 @@ import org.polytech.al.project1920.bankaccount.model.BankAccountStorageDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class BankAccountBean {
@@ -29,9 +29,13 @@ public class BankAccountBean {
         }
     }
 
-    public int getAmount(String userId) {
-        Optional<BankAccountStorage> bankAccountStorage = bankAccountStorageDB.getBankAccountStorageByUserID(userId);
-        return bankAccountStorage.map(BankAccountStorage::getAmount).orElse(-1);
+    public List<Float> getAmounts(String userId) {
+        List<BankAccountStorage> bankAccountStorages = bankAccountStorageDB.getBankAccountStoragesByUserID(userId);
+        List<Float> amounts = new ArrayList<>();
+        for (BankAccountStorage bankAccountStorage : bankAccountStorages) {
+            amounts.add(bankAccountStorage.getAmount());
+        }
+        return amounts;
     }
 
     public boolean canPayTransfert(String senderAccountId, double amount) {

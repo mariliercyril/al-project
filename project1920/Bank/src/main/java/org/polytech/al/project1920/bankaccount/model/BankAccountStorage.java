@@ -8,7 +8,7 @@ public class BankAccountStorage {
     @Id
     private String id;
     private String userID;
-    private int amount;
+    private float amount;
 
     public BankAccountStorage() {
     }
@@ -18,7 +18,7 @@ public class BankAccountStorage {
         this.amount = 0;
     }
 
-    public BankAccountStorage(String userID, int amount) {
+    public BankAccountStorage(String userID, float amount) {
         this.userID = userID;
         this.amount = amount;
     }
@@ -39,11 +39,11 @@ public class BankAccountStorage {
         this.userID = userID;
     }
 
-    public int getAmount() {
+    public float getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 }
