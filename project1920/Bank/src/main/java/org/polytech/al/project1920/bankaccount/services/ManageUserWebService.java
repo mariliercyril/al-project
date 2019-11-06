@@ -20,14 +20,14 @@ public class ManageUserWebService implements IManageUser {
     }
 
     @Override
-    @RequestMapping(value = "/getAmounts", method = RequestMethod.GET)
-    public List<Float> getAmounts(@RequestParam String userId) {
-        return bankAccountBean.getAmounts(userId);
+    @RequestMapping(value = "/getAmount", method = RequestMethod.GET)
+    public Float getAmount(@RequestParam String userId) {
+        return bankAccountBean.getAmount(userId);
     }
 
     @Override
     @RequestMapping(value = "/createAccount", method = RequestMethod.POST)
-    public void createAccount(@RequestParam String userId) {
-        bankAccountBean.createAccount(userId);
+    public boolean createAccount(@RequestParam String userId) {
+        return bankAccountBean.createAccount(userId);
     }
 }

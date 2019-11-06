@@ -5,8 +5,8 @@ import org.polytech.al.project1920.bankaccount.model.BankAccountStorageDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class BankAccountBean {
@@ -17,25 +17,31 @@ public class BankAccountBean {
         this.bankAccountStorageDB = bankAccountStorageDB;
     }
 
-    public void createAccount(String userId) {
-        BankAccountStorage bankAccountStorage = new BankAccountStorage(userId);
-        bankAccountStorageDB.save(bankAccountStorage);
+    public boolean createAccount(String userId) {
+        if(!bankAccountStorageDB.getBankAccountStorageByUserID(userId).isPresent()) {
+            BankAccountStorage bankAccountStorage = new BankAccountStorage(userId);
+            bankAccountStorageDB.save(bankAccountStorage);
 
-        List<BankAccountStorage> bankAccountStorages = bankAccountStorageDB.findAll();
+            System.out.println("Created bank account for user account with ID " + userId);
 
-        for (BankAccountStorage bas : bankAccountStorages) {
-            System.out.println(bas.getAmount());
-            System.out.println(bas.getUserID());
+            List<BankAccountStorage> bankAccountStorages = bankAccountStorageDB.findAll();
+
+            for (BankAccountStorage bas : bankAccountStorages) {
+                System.out.println(bas.getAmount());
+                System.out.println(bas.getUserID());
+            }
+
+            return true;
+        }
+        else {
+            System.out.println("Bank account with user ID " + userId + " already exists, can't create account !");
+            return false;
         }
     }
 
-    public List<Float> getAmounts(String userId) {
-        List<BankAccountStorage> bankAccountStorages = bankAccountStorageDB.getBankAccountStoragesByUserID(userId);
-        List<Float> amounts = new ArrayList<>();
-        for (BankAccountStorage bankAccountStorage : bankAccountStorages) {
-            amounts.add(bankAccountStorage.getAmount());
-        }
-        return amounts;
+    public Float getAmount(String userId) {
+        Optional<BankAccountStorage> bankAccountStorage = bankAccountStorageDB.getBankAccountStorageByUserID(userId);
+        return bankAccountStorage.map(BankAccountStorage::getAmount).orElse((float) -1);
     }
 
     public boolean canPayTransfert(String senderAccountId, double amount) {

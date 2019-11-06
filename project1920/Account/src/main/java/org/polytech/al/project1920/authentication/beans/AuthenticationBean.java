@@ -38,17 +38,17 @@ public class AuthenticationBean {
             User User = new User(age, 0, userId, password);
             userDB.save(User);
             System.out.println("Created account for user account with ID " + userId);
-
-            List<User> Users = userDB.findAll();
-
-            System.out.println("Here is the list of all existing accounts : \n");
-            for (User user : Users) {
-                System.out.println("Id : " + user.getId());
-                System.out.println("UserId : " + user.getUserId());
-                System.out.println("Password : " + user.getPassword());
-                System.out.println("Age : " + user.getAge());
-                System.out.println();
-            }
+//
+//            List<User> Users = userDB.findAll();
+//
+//            System.out.println("Here is the list of all existing accounts : \n");
+//            for (User user : Users) {
+//                System.out.println("Id : " + user.getId());
+//                System.out.println("UserId : " + user.getUserId());
+//                System.out.println("Password : " + user.getPassword());
+//                System.out.println("Age : " + user.getAge());
+//                System.out.println();
+//            }
             return true;
         } else {
             System.out.println("Account with ID " + userId + " already exists, can't create account !");
