@@ -24,7 +24,9 @@ class Scenario1 {
         System.out.println("                             Scenario 1");
         System.out.println("--------------------------------------------------------------------"+Color.ANSI_RESET);
         //create account Marcel
+        System.out.println(Color.ANSI_GREEN+"Initialisation Marcel, 18 ans."+Color.ANSI_RESET);
         String x = createAccount("azerty","Marcel",18);
+        createBankAccount("Marcel");
         //System.out.println(x);
         scanner.nextLine();
         System.out.println(Color.ANSI_GREEN+"Marcel se connecte a son compte utilisateur."+Color.ANSI_RESET);
@@ -63,6 +65,12 @@ class Scenario1 {
     private String reco(){
         RestTemplateBuilder builder = new RestTemplateBuilder();
         String result = builder.build().getForObject(REST_URI+":8000/triggerRecommendation", String.class);
+        return result;
+    }
+
+    private String createBankAccount(String id){
+        RestTemplateBuilder builder = new RestTemplateBuilder();
+        String result = builder.build().postForObject(REST_URI+":8080/createBankAccount?userId="+id,null, String.class);
         return result;
     }
 }
