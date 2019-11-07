@@ -11,7 +11,7 @@ class Profile:
         self.tagList = []
 
     def addTag(self):
-        if self.age > 18 & self.age <= 21:
+        if self.age > 17 & self.age <= 21:
             # TODO check condition
             self.tagList.append("MAJOR")
         if self.money > 10000:
