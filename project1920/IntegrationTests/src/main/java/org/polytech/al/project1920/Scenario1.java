@@ -35,22 +35,15 @@ class Scenario1 {
         scanner.nextLine();
         //profiling action
         System.out.println(Color.ANSI_GREEN+"Le profileur a genere un profil pour Marcel a partir de ses donnees.");
-        System.out.println("Le module de recommandations recupere le profil genere par le profileur."+Color.ANSI_RESET);
+        System.out.println("Le module de recommandations recupere le profil genere par le profileur et le compare au catalogue."+Color.ANSI_RESET);
+        scanner.nextLine();
+
+        System.out.println(Color.ANSI_GREEN+"Le module de recommandations remarque que Marcel aura bientot 18 ans.");
+        System.out.println("Il lui propose donc de creer un compte jeune."+Color.ANSI_RESET);
         //requete get profile
         y = reco();
         //System.out.println("Requete blabla");
         System.out.println(Color.ANSI_YELLOW+y+Color.ANSI_RESET);
-        scanner.nextLine();
-        System.out.println(Color.ANSI_GREEN+"Le module de recommandations recupere les donnees du catalogue et le profil genere par le profileur."+Color.ANSI_RESET);
-        //requete get catalog
-        System.out.println("Requete blabla");
-        System.out.println("reponse blabla");
-        scanner.nextLine();
-        //action recommendation
-        System.out.println(Color.ANSI_GREEN+"Il remarque que Marcel aura bientot 18 ans et ne possede pas de compte jeune.");
-        System.out.println("Il lui affiche alors une proposition pour creer un compte jeune."+Color.ANSI_RESET);
-        System.out.println("Proposition blabla");
-        System.out.println();
         scanner.nextLine();
 
     }
