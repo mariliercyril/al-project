@@ -24,9 +24,11 @@ class Scenario2 {
         System.out.println("                             Scenario 2");
         System.out.println("--------------------------------------------------------------------"+Color.ANSI_RESET);
         //create account Marcel
+        System.out.println(Color.ANSI_GREEN+"Initialisation Jose."+Color.ANSI_RESET);
         createAccount("pass","Jose",45);
         createBankAccount("Jose");
         addMoney("Jose",15000);
+        System.out.println(Color.ANSI_GREEN+"Initialisation Killian."+Color.ANSI_RESET);
         createAccount("word","Killian",24);
         createBankAccount("Killian");
         addMoney("Killian",2300);
@@ -48,22 +50,16 @@ class Scenario2 {
 
         //profiling action
         System.out.println(Color.ANSI_GREEN+"Killian possède donc 12 300 euros.");
-        System.out.println("Le profileur a genere un profil pour Killian a partir de ses donnees.");
-        System.out.println("Le module de recommandations recupere le profil genere par le profileur."+Color.ANSI_RESET);
+        System.out.println(Color.ANSI_GREEN+"Le profileur a genere un profil pour Killian a partir de ses donnees.");
+        System.out.println("Le module de recommandations recupere le profil genere par le profileur et le compare au catalogue."+Color.ANSI_RESET);
+        scanner.nextLine();
+
+        System.out.println(Color.ANSI_GREEN+"Le module de recommandations remarque que Killian a une somme impotante sur son compte.");
+        System.out.println("Il lui propose donc de creer un compte avec un taux plus avantageux."+Color.ANSI_RESET);
         //requete get profile
-        System.out.println("Requete blabla");
-        System.out.println("reponse blabla");
-        scanner.nextLine();
-        System.out.println(Color.ANSI_GREEN+"Le module de recommandations recupere les donnees du catalogue et le profil genere par le profileur."+Color.ANSI_RESET);
-        //requete get catalog
-        System.out.println("Requete blabla");
-        System.out.println("reponse blabla");
-        scanner.nextLine();
-        //action recommendation
-        System.out.println(Color.ANSI_GREEN+"Il remarque que Killian possède une somme importante sur son compte");
-        System.out.println("Il lui propose donc un compte avec un taux plus avantageux."+Color.ANSI_RESET);
-        System.out.println("Proposition blabla");
-        System.out.println();
+        String y = reco();
+        //System.out.println("Requete blabla");
+        System.out.println(Color.ANSI_YELLOW+y+Color.ANSI_RESET);
         scanner.nextLine();
 
     }
@@ -95,6 +91,12 @@ class Scenario2 {
     private String transfer(String senderId, String receiverId, int amount){
         RestTemplateBuilder builder = new RestTemplateBuilder();
         String result = builder.build().postForObject(REST_URI+":8080/requestTransfer?senderId="+senderId+"&receiverId="+receiverId+"&amount="+amount,null, String.class);
+        return result;
+    }
+
+    private String reco(){
+        RestTemplateBuilder builder = new RestTemplateBuilder();
+        String result = builder.build().getForObject(REST_URI+":8000/triggerRecommendation", String.class);
         return result;
     }
 }
