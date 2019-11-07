@@ -20,8 +20,8 @@ class Profile:
 
 class RetrieveProfile:
     def ExtractUsersData(self):
-        url = 'http://account:8081/retrieveUsers'
-        #url = 'http://localhost:8081/retrieveUsers'
+        #url = 'http://account:8081/retrieveUsers'
+        url = 'http://localhost:8081/retrieveUsers'
 
         # params = {'profileId':id}
         # response = requests.get(url, params)

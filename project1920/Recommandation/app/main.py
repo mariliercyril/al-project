@@ -13,6 +13,7 @@ import json
 
 from profiling import RetrieveProfile
 from recommendation import Recommendation
+from simpleobj import Simple
 
 
 class RequireJSON(object):
@@ -36,8 +37,13 @@ class RequireJSON(object):
         recommendations = Recommendation.RetrieveProfileAndCalculate(profiles)
 
         resp.content_type = falcon.MEDIA_JSON
-        resp.body = '[{"message": "Hello world!"}]'
-        #resp.body = json.dumps(recommendation.__dict__ for recommendation in recommendations)
+
+        simples = []
+        for recommendation in recommendations:
+            simple = Simple(recommendation.profile.id, recommendation.recommendations)
+            simples.append(simple)
+
+        resp.body = json.dumps([simple.__dict__ for simple in simples])
         resp.status = falcon.HTTP_200
 
 
