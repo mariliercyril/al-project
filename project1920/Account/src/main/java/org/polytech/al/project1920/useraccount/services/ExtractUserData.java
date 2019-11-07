@@ -23,7 +23,7 @@ public class ExtractUserData implements IExtractUserData {
     }
 
     @Override
-    @RequestMapping(value = "/retrieveUsers", method = RequestMethod.GET)
+    @RequestMapping(value = "/retrieveusers", method = RequestMethod.GET)
     public List<User> retrieveUsers() {
         System.out.println("Retrieving all users");
         return userBean.getUsers();
