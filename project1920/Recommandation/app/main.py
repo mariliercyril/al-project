@@ -33,10 +33,11 @@ class RequireJSON(object):
         for profile in profiles:
             profile.addTag()
 
-        Recommendation().RetrieveProfileAndCalculate(profiles)
+        recommendations = Recommendation.RetrieveProfileAndCalculate(profiles)
 
         resp.content_type = falcon.MEDIA_JSON
-        #resp.body = json.dumps(profiles)
+        resp.body = '[{"message": "Hello world!"}]'
+        #resp.body = json.dumps(recommendation.__dict__ for recommendation in recommendations)
         resp.status = falcon.HTTP_200
 
 
