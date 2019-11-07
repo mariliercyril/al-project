@@ -14,10 +14,10 @@ public class Application {
         Scenario2 scenario2 = new Scenario2(uri);
         scenario2.play();
 
-        System.out.println(Color.ANSI_CYAN+"--------------------------------------------------------------------");
+        /*System.out.println(Color.ANSI_CYAN+"--------------------------------------------------------------------");
         System.out.println("                             Pretty Dump");
         System.out.println("--------------------------------------------------------------------"+Color.ANSI_RESET);
-        String result = builder.build().getForObject(uri+":8081/prettyDump", String.class);
+        String result = builder.build().getForObject(uri+":8081/prettyDump", String.class);*/
     }
 
 }

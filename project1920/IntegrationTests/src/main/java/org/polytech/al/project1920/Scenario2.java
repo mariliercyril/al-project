@@ -24,15 +24,18 @@ class Scenario2 {
         System.out.println("                             Scenario 2");
         System.out.println("--------------------------------------------------------------------"+Color.ANSI_RESET);
         //create account Marcel
-        System.out.println(Color.ANSI_GREEN+"Initialisation Jose."+Color.ANSI_RESET);
+        System.out.println(Color.ANSI_GREEN+"Initialisation Jose, 45 ans. Un compte avec 15 000 euros"+Color.ANSI_RESET);
         createAccount("pass","Jose",45);
         createBankAccount("Jose");
         addMoney("Jose",15000);
-        System.out.println(Color.ANSI_GREEN+"Initialisation Killian."+Color.ANSI_RESET);
+        System.out.println(Color.ANSI_GREEN+"Initialisation Killian, 24 ans. Un compte avec 2 300 euros"+Color.ANSI_RESET);
         createAccount("word","Killian",24);
         createBankAccount("Killian");
         addMoney("Killian",2300);
         //System.out.println(x);
+        scanner.nextLine();
+        System.out.println(Color.ANSI_CYAN+"Pretty Dump"+Color.ANSI_RESET);
+        prettyDump();
         scanner.nextLine();
         System.out.println(Color.ANSI_GREEN+"Jose se connecte a son compte utilisateur."+Color.ANSI_RESET);
         //requete login
@@ -61,7 +64,8 @@ class Scenario2 {
         //System.out.println("Requete blabla");
         System.out.println(Color.ANSI_YELLOW+y+Color.ANSI_RESET);
         scanner.nextLine();
-
+        System.out.println(Color.ANSI_CYAN+"Pretty Dump"+Color.ANSI_RESET);
+        prettyDump();
     }
 
     private String createAccount(String pass, String id, int age){
@@ -97,6 +101,12 @@ class Scenario2 {
     private String reco(){
         RestTemplateBuilder builder = new RestTemplateBuilder();
         String result = builder.build().getForObject(REST_URI+":8000/triggerRecommendation", String.class);
+        return result;
+    }
+
+    private String prettyDump(){
+        RestTemplateBuilder builder = new RestTemplateBuilder();
+        String result = builder.build().getForObject(REST_URI+":8081/prettyDump", String.class);
         return result;
     }
 }
