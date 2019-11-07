@@ -23,11 +23,13 @@ class Scenario2 {
         System.out.println(Color.ANSI_CYAN+"--------------------------------------------------------------------");
         System.out.println("                             Scenario 2");
         System.out.println("--------------------------------------------------------------------"+Color.ANSI_RESET);
+        scanner.nextLine();
         //create account Marcel
         System.out.println(Color.ANSI_GREEN+"Initialisation Jose, 45 ans. Un compte avec 15 000 euros"+Color.ANSI_RESET);
         createAccount("pass","Jose",45);
         createBankAccount("Jose");
         addMoney("Jose",15000);
+        scanner.nextLine();
         System.out.println(Color.ANSI_GREEN+"Initialisation Killian, 24 ans. Un compte avec 2 300 euros"+Color.ANSI_RESET);
         createAccount("word","Killian",24);
         createBankAccount("Killian");

@@ -23,6 +23,7 @@ class Scenario1 {
         System.out.println(Color.ANSI_CYAN+"--------------------------------------------------------------------");
         System.out.println("                             Scenario 1");
         System.out.println("--------------------------------------------------------------------"+Color.ANSI_RESET);
+        scanner.nextLine();
         //create account Marcel
         System.out.println(Color.ANSI_GREEN+"Initialisation Marcel, 18 ans."+Color.ANSI_RESET);
         String x = createAccount("azerty","Marcel",18);
