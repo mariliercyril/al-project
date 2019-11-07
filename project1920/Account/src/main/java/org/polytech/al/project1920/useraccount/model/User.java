@@ -10,23 +10,21 @@ public class User {
     private String id;
     private String userId;
     private int age;
-    private int money;
+    private float money;
+    private String password;
 
     public User() {
     }
 
-    public User(int age, int money, String userId) {
+    public User(int age, float money, String userId, String password) {
         this.age = age;
         this.money = money;
         this.userId = userId;
+        this.password = password;
     }
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public int getAge() {
@@ -37,11 +35,11 @@ public class User {
         this.age = age;
     }
 
-    public int getMoney() {
+    public float getMoney() {
         return money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(float money) {
         this.money = money;
     }
 
@@ -51,5 +49,13 @@ public class User {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

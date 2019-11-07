@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -40,5 +41,11 @@ public class ExtractUserData implements IExtractUserData {
     public User retrieveUserByMongoId(@RequestParam String id) {
         System.out.println("Retrieved user for mongo id : " + id);
         return userBean.getUserById(id);
+    }
+
+    @Override
+    @RequestMapping(value = "/prettyDump", method = RequestMethod.GET)
+    public void prettyDump() {
+        userBean.prettyDump();
     }
 }

@@ -4,7 +4,6 @@
 from wsgiref.simple_server import make_server
 
 import falcon
-import requests
 import json
 
 
@@ -12,19 +11,8 @@ import json
 # other things) that you think in terms of resources and state
 # transitions, which map to HTTP verbs.
 
-class Profile:
-    def __init__(self, idParam, ageParam, moneyParam):
-        self.id = idParam
-        self.age = ageParam
-        self.money = moneyParam
-
-class RetrieveProfile:
-    def get(self, id):
-        url = 'http://account:8081/retrieveProfile'
-        params = {'profileId':id}
-        response = requests.get(url, params)
-        print(response)
-        return Profile(id, 12, 1000)
+from profiling import RetrieveProfile
+from recommendation import Recommendation
 
 
 class RequireJSON(object):
@@ -40,11 +28,15 @@ class RequireJSON(object):
                     'This API only supports requests encoded as JSON.',
                     href='http://docs.examples.com/api/json')
 
-        id = req.get_param('id')
-        profile = RetrieveProfile().get(id)
+        #id = req.get_param('id')
+        profiles = RetrieveProfile().ExtractUsersData()
+        for profile in profiles:
+            profile.addTag()
+
+        Recommendation().RetrieveProfileAndCalculate(profiles)
 
         resp.content_type = falcon.MEDIA_JSON
-        resp.body = json.dumps(profile.__dict__)
+        #resp.body = json.dumps(profiles)
         resp.status = falcon.HTTP_200
 
 
@@ -56,7 +48,7 @@ app = falcon.API()
 things = RequireJSON()
 
 # things will handle all requests to the '/things' URL path
-app.add_route('/things', things)
+app.add_route('/triggerRecommendation', things)
 
 if __name__ == '__main__':
     with make_server('', 8000, app) as httpd:

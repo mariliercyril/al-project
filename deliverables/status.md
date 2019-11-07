@@ -1,6 +1,11 @@
 # V5 : MARKETING WEBSITE
 
+Week 44 ![flag](https://placehold.it/15/00ff00/000000?text=+)
+-
 
+* Cette semaine, nous avons principalement programmé afin d'avancer l'état du projet. Nous avons commencé l'implémentation de nos deux premiers scénarios en parallèle, chaque membre de l'équipe s'occupant d'un bloc de composants. L'architecture n'a pas été modifiée mais nous avons apporté des éléments de détails et de justification au rapport d'architecture. Le walking skeleton est en place mais il n'est pour le moment pas automatisé.
+* Objectifs de la semaine 45 : Nous souhaitons terminer l'implémentation des deux premiers scénarios et proposer des justifications complètes pour chacun de nos choix. Nous souhaitons également mettre en place des tests d'intégration pour dérouler nos scénarios automatiquement.
+* Nous ne rencontrons aucune difficulté technique pour le moment, nous devons simplement concentrer nos efforts sur l'avancée du code.
 
 Week 43 ![flag](https://placehold.it/15/ffff00/000000?text=+)
 -
