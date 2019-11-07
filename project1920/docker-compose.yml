@@ -34,3 +34,5 @@ services:
     - mongodb
     environment:
       spring.data.mongodb.uri: mongodb://mongodb:27017/recommandation
+    depends_on:
+      - mongodb
