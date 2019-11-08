@@ -19,6 +19,8 @@ class Scenario1 {
     * Il lui affiche alors une proposition pour créer un compte jeune, adapté à sa situation.
     */
     void play(){
+
+
         Scanner scanner = new Scanner(System.in);
         System.out.println(Color.ANSI_CYAN+"--------------------------------------------------------------------");
         System.out.println("                             Scenario 1");
@@ -53,7 +55,7 @@ class Scenario1 {
 
     private String createAccount(String pass, String id, int age){
         RestTemplateBuilder builder = new RestTemplateBuilder();
-        String result = builder.build().postForObject(REST_URI+":8081/createAccount?password="+pass+"&userId="+id+"&age="+age,null, String.class);
+        String result = builder.build().postForObject(REST_URI + ":8081/createAccount?password=" + pass + "&userId=" + id + "&age=" + age, null, String.class);
         return result;
     }
 
