@@ -23,11 +23,13 @@ public class ExtractUserData implements IExtractUserData {
     }
 
     @Override
-    @RequestMapping(value = "/retrieveUsers", method = RequestMethod.GET)
+    @RequestMapping(value = "/retrieveusers", method = RequestMethod.GET)
     public List<User> retrieveUsers() {
         System.out.println("Retrieving all users");
         return userBean.getUsers();
     }
+
+
 
     @Override
     @RequestMapping(value = "/retrieveUser", method = RequestMethod.GET)
@@ -47,5 +49,10 @@ public class ExtractUserData implements IExtractUserData {
     @RequestMapping(value = "/prettyDump", method = RequestMethod.GET)
     public void prettyDump() {
         userBean.prettyDump();
+    }
+
+    @RequestMapping(value = "/yo", method = RequestMethod.GET)
+    public List<User> yo() {
+        return userBean.getUsers();
     }
 }

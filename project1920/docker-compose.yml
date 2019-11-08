@@ -3,11 +3,12 @@ version: "3"
 services:
   mongodb:
     image: mongo:4.0.0
-    container_name: "mongodb"
+    container_name: mongodb
     ports:
     - 27017:27017
     command: --smallfiles
-  Account:
+
+  account:
     build : ./Account
     image: springio/account
     ports:
@@ -16,7 +17,9 @@ services:
     - mongodb
     environment:
       spring.data.mongodb.uri: mongodb://mongodb:27017/account
-  Bank:
+    container_name: account
+
+  bank:
     build : ./Bank
     image: springio/bank
     ports:
@@ -25,7 +28,9 @@ services:
     - mongodb
     environment:
       spring.data.mongodb.uri: mongodb://mongodb:27017/bank
-  Recommandation:
+    container_name: bank
+
+  recommandation:
     build : ./Recommandation
     image: python/recommandation
     ports:
@@ -35,4 +40,5 @@ services:
     environment:
       spring.data.mongodb.uri: mongodb://mongodb:27017/recommandation
     depends_on:
-      - mongodb
+      - account
+    container_name: recommendation

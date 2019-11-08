@@ -8,6 +8,7 @@ RUN pip install gunicorn
 
 # Install falcon
 RUN pip install falcon
+RUN pip install requests
 
 # Add demo app
 COPY ./app /app
@@ -19,9 +20,9 @@ CMD ["gunicorn", "-b", "0.0.0.0:80", "main:app"]
 
 
 
-RUN pip3 install https://github.com/psf/requests/archive/master.zip
-RUN apk --no-cache add curl
+#RUN pip3 install https://github.com/psf/requests/archive/master.zip
+#RUN apk --no-cache add curl
 ENV PYTHONUNBUFFERED 0
 
-EXPOSE 80
-COPY ./app /app
+#EXPOSE 80
+#COPY ./app /app
