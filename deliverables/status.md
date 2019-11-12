@@ -1,9 +1,16 @@
 # V5 : MARKETING WEBSITE
 
+Week 46 ![flag](https://placehold.it/15/00ff00/000000?text=+)
+-
+
+* Cette semaine, nous avons terminé l'implémentation des deux premiers scénarios et préparé notre démo. Nous n'avons pas modifié l'architecture actuelle mais avons réfléchi à des façons de l'améliorer pour implémenter le scénario 3 correctement. Ainsi, nous avons prévu une architecture pour le futur, que nous avons ajouté à la fin du dossier d'architecture, en expliquant les principaux changements.
+* Objectifs pour janvier : nous souhaitons implémenter le scénario 3 puis adapter notre architecture aux nouvelles exigences qui nous seront communiquées dans le futur.
+* Nous ne rencontrons aucune difficulté technique pour le moment mais il a été compliqué de terminer le projet dans les temps avec un membre en moins.
+
 Week 45 ![flag](https://placehold.it/15/00ff00/000000?text=+)
 -
 
-* Cette semaine, nous avons programmé afin d'avancer l'état du projet. Le système de recommandation est fonctionnel pour nos deux premiers scénarios. Il manque quelques fonctionnalités dans le reste du code pour terminer les deux scénarios.
+* Cette semaine, nous avons programmé afin d'avancer l'état du projet. Le système de recommandation est fonctionnel pour nos deux premiers scénarios. Il manque quelques fonctionnalités dans le reste du code pour terminer les deux scénarios. Nous n'avons pas modifié l'architecture.
 * Objectifs de la semaine 46 : Nous souhaitons terminer l'implémentation des deux premiers scénarios, et éventuellement implémenter le troisième scénario défini dans le dossier d'architecture.
 * Nous ne rencontrons aucune difficulté technique pour le moment, mais Cyril n'est malheureusement plus présent à Polytech et nous sommes donc uniquement un groupe de trois personnes pour la fin du projet.
 
