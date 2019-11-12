@@ -6,9 +6,11 @@ import java.util.Scanner;
 
 class Scenario2 {
     String REST_URI;
+    RestTemplateBuilder builder;
 
     Scenario2(String uri){
         REST_URI = uri;
+        builder = new RestTemplateBuilder();
     }
 
     /*
@@ -41,16 +43,14 @@ class Scenario2 {
         scanner.nextLine();
         System.out.println(Color.ANSI_GREEN+"Jose se connecte a son compte utilisateur."+Color.ANSI_RESET);
         //requete login
-        //System.out.println("Requete blabla");
         String x = login("pass","Jose");
-        System.out.println(x);
+        System.out.println(Color.ANSI_YELLOW+x+Color.ANSI_RESET);
         scanner.nextLine();
 
         System.out.println(Color.ANSI_GREEN+"Jose effectue un virement de 10 000 euros sur le compte de Killian."+Color.ANSI_RESET);
         //requete login
-        //System.out.println("Requete blabla");
         x = transfer("Jose","Killian",10000);
-        System.out.println(x);
+        System.out.println(Color.ANSI_YELLOW+x+Color.ANSI_RESET);
         scanner.nextLine();
 
         //profiling action
@@ -63,7 +63,6 @@ class Scenario2 {
         System.out.println("Il lui propose donc de creer un compte avec un taux plus avantageux."+Color.ANSI_RESET);
         //requete get profile
         String y = reco();
-        //System.out.println("Requete blabla");
         System.out.println(Color.ANSI_YELLOW+y+Color.ANSI_RESET);
         scanner.nextLine();
         System.out.println(Color.ANSI_CYAN+"Pretty Dump"+Color.ANSI_RESET);
@@ -71,44 +70,51 @@ class Scenario2 {
     }
 
     private String createAccount(String pass, String id, int age){
-        RestTemplateBuilder builder = new RestTemplateBuilder();
-        String result = builder.build().postForObject(REST_URI+":8081/createAccount?password="+pass+"&userId="+id+"&age="+age,null, String.class);
-        return result;
-    }
-
-    private String createBankAccount(String id){
-        RestTemplateBuilder builder = new RestTemplateBuilder();
-        String result = builder.build().postForObject(REST_URI+":8080/createBankAccount?userId="+id,null, String.class);
+        String fullUri = REST_URI + ":8081/createAccount?password=" + pass + "&userId=" + id + "&age=" + age;
+        System.out.println(Color.ANSI_YELLOW+"REST/POST : "+fullUri+Color.ANSI_RESET);
+        String result = builder.build().postForObject( fullUri, null, String.class);
         return result;
     }
 
     private String login(String pass, String id){
-        RestTemplateBuilder builder = new RestTemplateBuilder();
-        String result = builder.build().getForObject(REST_URI+":8081/login?password="+pass+"&userId="+id, String.class);
-        return result;
-    }
-
-    private String addMoney(String id,int amount){
-        RestTemplateBuilder builder = new RestTemplateBuilder();
-        String result = builder.build().postForObject(REST_URI+":8080/addMoney?userId="+id+"&amount="+amount,null, String.class);
-        return result;
-    }
-
-    private String transfer(String senderId, String receiverId, int amount){
-        RestTemplateBuilder builder = new RestTemplateBuilder();
-        String result = builder.build().postForObject(REST_URI+":8080/requestTransfer?senderId="+senderId+"&receiverId="+receiverId+"&amount="+amount,null, String.class);
+        String fullUri = REST_URI+":8081/login?password="+pass+"&userId="+id;
+        System.out.println(Color.ANSI_YELLOW+"REST/GET : "+fullUri+Color.ANSI_RESET);
+        String result = builder.build().getForObject(fullUri, String.class);
         return result;
     }
 
     private String reco(){
-        RestTemplateBuilder builder = new RestTemplateBuilder();
-        String result = builder.build().getForObject(REST_URI+":8000/triggerRecommendation", String.class);
+        String fullUri = REST_URI+":8000/triggerRecommendation";
+        System.out.println(Color.ANSI_YELLOW+"REST/GET : "+fullUri+Color.ANSI_RESET);
+        String result = builder.build().getForObject(fullUri, String.class);
+        return result;
+    }
+
+    private String createBankAccount(String id){
+        String fullUri = REST_URI+":8080/createBankAccount?userId="+id;
+        System.out.println(Color.ANSI_YELLOW+"REST/POST : "+fullUri+Color.ANSI_RESET);
+        String result = builder.build().postForObject(fullUri,null, String.class);
+        return result;
+    }
+
+    private String addMoney(String id,int amount){
+        String fullUri = REST_URI+":8080/addMoney?userId="+id+"&amount="+amount;
+        System.out.println(Color.ANSI_YELLOW+"REST/POST : "+fullUri+Color.ANSI_RESET);
+        String result = builder.build().postForObject(fullUri,null, String.class);
+        return result;
+    }
+
+    private String transfer(String senderId, String receiverId, int amount){
+        String fullUri = REST_URI+":8080/requestTransfer?senderId="+senderId+"&receiverId="+receiverId+"&amount="+amount;
+        System.out.println(Color.ANSI_YELLOW+"REST/POST : "+fullUri+Color.ANSI_RESET);
+        String result = builder.build().postForObject(fullUri,null, String.class);
         return result;
     }
 
     private String prettyDump(){
-        RestTemplateBuilder builder = new RestTemplateBuilder();
-        String result = builder.build().getForObject(REST_URI+":8081/prettyDump", String.class);
+        String fullUri = REST_URI+":8081/prettyDump";
+        System.out.println(Color.ANSI_YELLOW+"REST/GET : "+fullUri+Color.ANSI_RESET);
+        String result = builder.build().getForObject(fullUri, String.class);
         return result;
     }
 }

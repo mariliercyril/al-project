@@ -27,7 +27,7 @@ public class Application {
         System.out.println();
         Scenario2 scenario2 = new Scenario2(uri);
         scenario2.play();
-
+        System.out.println();
         System.out.println("The scenarios are over, the app will now shutdown");
         Thread.sleep(1000);
 
