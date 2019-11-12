@@ -43,7 +43,7 @@ public class UserBean {
 
     private void actualizeMoney(String userId) {
         RestTemplateBuilder builder = new RestTemplateBuilder();
-        String result = builder.build().getForObject("http://192.168.99.100:8080/getAmount?userId=" + userId, String.class);
+        String result = builder.build().getForObject("http://localhost:8080/getAmount?userId=" + userId, String.class);
 
         Optional<User> user = userDB.findUserByUserId(userId);
         if (result != null && user.isPresent()) {
