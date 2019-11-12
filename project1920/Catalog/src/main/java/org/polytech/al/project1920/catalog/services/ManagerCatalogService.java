@@ -1,44 +1,42 @@
 package org.polytech.al.project1920.catalog.services;
 
-import java.util.List;
-
 import org.polytech.al.project1920.catalog.model.ProductStorage;
 import org.polytech.al.project1920.catalog.model.ProductStorageDB;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class ManagerCatalogService implements IAddItem, IRetrieveProducts {
 
-	private final ProductStorageDB productStorageDB;
+    private final ProductStorageDB productStorageDB;
 
-	@Autowired
-	public ManagerCatalogService(ProductStorageDB productStorageDB) {
- 
-		this.productStorageDB = productStorageDB;
-	}
+    @Autowired
+    public ManagerCatalogService(ProductStorageDB productStorageDB) {
 
-	@Override
-	@PostMapping(path = "/products", consumes = "application/json", produces = "application/json")
-	public boolean addItem(@RequestBody ProductStorage product) {
+        this.productStorageDB = productStorageDB;
+    }
 
-		int productsNumber = (productStorageDB.findAll()).size();
+    @Override
+    @PostMapping(path = "/products", consumes = "application/json", produces = "application/json")
+    public boolean addItem(@RequestBody ProductStorage product) {
 
-		productStorageDB.save(product);
+        int productsNumber = (productStorageDB.findAll()).size();
 
-		return ((productsNumber + 1) == (productStorageDB.findAll()).size());
-	}
+        productStorageDB.save(product);
 
-	@Override
-	@GetMapping(path = "/products", consumes = "application/json", produces = "application/json")
-	public List<ProductStorage> retrieveProducts() {
+        return ((productsNumber + 1) == (productStorageDB.findAll()).size());
+    }
 
-		return productStorageDB.findAll();
-	}
+    @Override
+    @GetMapping(path = "/products", consumes = "application/json", produces = "application/json")
+    public List<ProductStorage> retrieveProducts() {
+
+        return productStorageDB.findAll();
+    }
 
 }

@@ -1,11 +1,11 @@
 package org.polytech.al.project1920.catalog.services;
 
-import java.util.List;
-
 import org.polytech.al.project1920.catalog.model.ProductStorage;
+
+import java.util.List;
 
 public interface IRetrieveProducts {
 
-    public List<ProductStorage> retrieveProducts();
+    List<ProductStorage> retrieveProducts();
 
 }

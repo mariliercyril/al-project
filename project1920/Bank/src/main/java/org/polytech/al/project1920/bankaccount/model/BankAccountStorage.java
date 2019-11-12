@@ -18,11 +18,6 @@ public class BankAccountStorage {
         this.amount = 0;
     }
 
-    public BankAccountStorage(String userID, float amount) {
-        this.userID = userID;
-        this.amount = amount;
-    }
-
     public String getId() {
         return id;
     }

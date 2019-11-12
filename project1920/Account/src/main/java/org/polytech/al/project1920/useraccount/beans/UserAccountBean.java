@@ -6,7 +6,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -15,12 +14,9 @@ public class UserAccountBean {
     @Value("${Bank}")
     private String uri;
 
-    public boolean getData(String accountId){
+    public boolean getData(String accountId) {
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(uri + "/getInfos")
                 .queryParam("accountId", accountId);
-                //.queryParam("location", delivery.getLocation());
-
-
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
@@ -31,8 +27,7 @@ public class UserAccountBean {
                 HttpMethod.GET,
                 entity,
                 Boolean.class);
-        if (response != null && response.getBody() != null)
-        {
+        if (response != null && response.getBody() != null) {
             return response.getBody();
         }
         return false;

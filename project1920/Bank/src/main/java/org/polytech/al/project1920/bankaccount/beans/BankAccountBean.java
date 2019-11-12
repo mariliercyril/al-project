@@ -22,13 +22,6 @@ public class BankAccountBean {
             bankAccountStorageDB.save(bankAccountStorage);
 
             System.out.println("Created bank account for user account with ID " + userId);
-//
-//            List<BankAccountStorage> bankAccountStorages = bankAccountStorageDB.findAll();
-//
-//            for (BankAccountStorage bas : bankAccountStorages) {
-//                System.out.println(bas.getAmount());
-//                System.out.println(bas.getUserID());
-//            }
 
             return true;
         } else {

@@ -1,11 +1,8 @@
 package org.polytech.al.project1920.card.beans;
 
 import org.polytech.al.project1920.bankaccount.beans.BankAccountBean;
-import org.polytech.al.project1920.bankaccount.model.BankAccountStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.Optional;
 
 @Component
 public class CardBean {
