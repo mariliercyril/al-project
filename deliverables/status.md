@@ -1,5 +1,12 @@
 # V5 : MARKETING WEBSITE
 
+Week 45 ![flag](https://placehold.it/15/00ff00/000000?text=+)
+-
+
+* Cette semaine, nous avons programmé afin d'avancer l'état du projet. Le système de recommandation est fonctionnel pour nos deux premiers scénarios. Il manque quelques fonctionnalités dans le reste du code pour terminer les deux scénarios.
+* Objectifs de la semaine 46 : Nous souhaitons terminer l'implémentation des deux premiers scénarios, et éventuellement implémenter le troisième scénario défini dans le dossier d'architecture.
+* Nous ne rencontrons aucune difficulté technique pour le moment, mais Cyril n'est malheureusement plus présent à Polytech et nous sommes donc uniquement un groupe de trois personnes pour la fin du projet.
+
 Week 44 ![flag](https://placehold.it/15/00ff00/000000?text=+)
 -
 
