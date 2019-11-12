@@ -4,7 +4,7 @@ FROM python:3.5-alpine
 EXPOSE 80
 
 # Install gunicorn
-RUN pip install gunicorn
+RUN pip install gunicorn==19.9.0
 
 # Install falcon
 RUN pip install falcon
