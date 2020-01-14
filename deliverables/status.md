@@ -1,5 +1,13 @@
 # V5 : MARKETING WEBSITE
 
+Week 03 ![flag](https://placehold.it/15/00ff00/000000?text=+)
+-
+
+* Cette semaine, nous avons discuté des modifications à mettre en place sur notre architecture pour répondre aux nouvelles exigences du sujet.
+* Objectifs pour la semaine 4 : nous souhaitons améliorer notre base de code et commencer la mise en place des nouvelles fonctionnalités.
+* Nous ne rencontrons aucune difficulté technique pour le moment, nous devons nous concentrer sur l'avancée du code.
+
+
 Week 46 ![flag](https://placehold.it/15/00ff00/000000?text=+)
 -
 
