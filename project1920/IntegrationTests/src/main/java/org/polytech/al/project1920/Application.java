@@ -11,7 +11,7 @@ public class Application {
     public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(Application.class, args);
 
-        String uri = "http://localhost";
+        String uri = "http://192.168.99.100";
         Scenario1 scenario1 = new Scenario1(uri);
         scenario1.play();
         System.out.println();
