@@ -1,5 +1,13 @@
 # V5 : MARKETING WEBSITE
 
+Week 04 ![flag](https://placehold.it/15/00ff00/000000?text=+)
+-
+
+* Cette semaine, suite à une intervention d'un industriel à propos des fonctions Lambda AWS, nous avons à nouveau réfléchi aux modifications à apporter à notre architecture. 
+* Objectifs pour la semaine 5 : nous souhaitons avancer la mise en place des nouvelles fonctionnalités, en découvrant les nouvelles technologies à notre disposition (lambda AWS et DSL pour ajouter un produit au catalogue).
+* Nous ne rencontrons aucune difficulté technique pour le moment, nous nous concentrons sur l'avancée du code et la restructuration de l'architecture.
+
+
 Week 03 ![flag](https://placehold.it/15/00ff00/000000?text=+)
 -
 
