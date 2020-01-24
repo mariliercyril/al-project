@@ -1,22 +1,15 @@
 # # 8-jdk-alpine
+
 version: "3"
 services:
-  mongodb:
-    image: mongo:4.0.0
-    container_name: mongodb
-    ports:
-    - 27017:27017
-    command: --smallfiles
-
   account:
     build : ./Account
     image: springio/account
     ports:
     - 8081:8081
-    links:
-    - mongodb
     environment:
-      spring.data.mongodb.uri: mongodb://mongodb:27017/account
+      spring.data.mongodb.uri: mongodb+srv://server_user:{NOTTHEPASSWORD}@profiling-88zkw.mongodb.net/test?retryWrites=true&w=majority
+      spring.data.mongodb.database: test
     container_name: account
 
   bank:
@@ -24,10 +17,9 @@ services:
     image: springio/bank
     ports:
     - 8080:8080
-    links:
-    - mongodb
     environment:
-      spring.data.mongodb.uri: mongodb://mongodb:27017/bank
+      spring.data.mongodb.uri: mongodb+srv://server_user:{NOTTHEPASSWORD}@profiling-88zkw.mongodb.net/test?retryWrites=true&w=majority
+      spring.data.mongodb.database: test
     container_name: bank
 
   recommandation:
@@ -35,10 +27,9 @@ services:
     image: python/recommandation
     ports:
     - 8000:80
-    links:
-    - mongodb
     environment:
-      spring.data.mongodb.uri: mongodb://mongodb:27017/recommandation
+      spring.data.mongodb.uri: mongodb+srv://server_user:{NOTTHEPASSWORD}@profiling-88zkw.mongodb.net/test?retryWrites=true&w=majority
+      spring.data.mongodb.database: test
     depends_on:
       - account
     container_name: recommendation
