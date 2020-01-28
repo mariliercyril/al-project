@@ -1,5 +1,13 @@
 # V5 : MARKETING WEBSITE
 
+Week 05 ![flag](https://placehold.it/15/ffff00/000000?text=+)
+-
+
+* Cette semaine, nous avons fait des avancées au niveau du code suite à la restructuration de notre architecture. Nous avons commencé la prise en main des fonctions Lambda AWS, commencé la mise en place du DSL pour l'ajout des produits ainsi que pris des décisions concernant le peuplement des bases de données pour l'entraînement du modèle de machine learning.
+* Objectifs pour la semaine 6 : avancer la mise en place des nouvelles fonctionnalités, peupler des bases de données pour entraîner un modèle externe.
+* Nous rencontrons quelques difficultés techniques pour découvrir des modèles de machine learning et adapter nos données. En dehors de cela, l'avancée du code prend simplement du temps.
+
+
 Week 04 ![flag](https://placehold.it/15/00ff00/000000?text=+)
 -
 
