@@ -11,38 +11,46 @@ public class ProductStorage {
     private String productID;
 
     private String name;
+    private int minimalAge;
+    private int maximalAge;
+    private int minimalAmount;
+    private int maximalAmount;
     private int price;
 
-    public ProductStorage(String productID) {
+    public ProductStorage() {
+    }
 
+    public ProductStorage(String productID) {
         this.productID = productID;
     }
 
     public ProductStorage(String productID, String name, int price) {
-
         super();
-
         this.name = name;
         this.price = price;
     }
 
-    public String getId() {
+    public int getMinimalAge() {
+        return minimalAge;
+    }
 
+    public void setMinimalAge(int minimalAge) {
+        this.minimalAge = minimalAge;
+    }
+
+    public String getId() {
         return id;
     }
 
     public String getProductID() {
-
         return productID;
     }
 
     public void setProductID(String productID) {
-
         this.productID = productID;
     }
 
     public String getName() {
-
         return name;
     }
 
@@ -52,13 +60,34 @@ public class ProductStorage {
     }
 
     public int getPrice() {
-
         return price;
     }
 
     public void setPrice(int price) {
-
         this.price = price;
     }
 
+    public int getMaximalAge() {
+        return maximalAge;
+    }
+
+    public void setMaximalAge(int maximalAge) {
+        this.maximalAge = maximalAge;
+    }
+
+    public int getMinimalAmount() {
+        return minimalAmount;
+    }
+
+    public void setMinimalAmount(int minimalAmount) {
+        this.minimalAmount = minimalAmount;
+    }
+
+    public int getMaximalAmount() {
+        return maximalAmount;
+    }
+
+    public void setMaximalAmount(int maximalAmount) {
+        this.maximalAmount = maximalAmount;
+    }
 }
