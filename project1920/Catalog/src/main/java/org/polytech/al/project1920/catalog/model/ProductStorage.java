@@ -10,32 +10,16 @@ public class ProductStorage {
     private String id;
     private String productID;
 
-    private String name;
-    private int minimalAge;
-    private int maximalAge;
-    private int minimalAmount;
-    private int maximalAmount;
-    private int price;
+    private String product;
+    private String condition;
+    private String operator;
+    private int value;
 
     public ProductStorage() {
     }
 
     public ProductStorage(String productID) {
         this.productID = productID;
-    }
-
-    public ProductStorage(String productID, String name, int price) {
-        super();
-        this.name = name;
-        this.price = price;
-    }
-
-    public int getMinimalAge() {
-        return minimalAge;
-    }
-
-    public void setMinimalAge(int minimalAge) {
-        this.minimalAge = minimalAge;
     }
 
     public String getId() {
@@ -50,44 +34,35 @@ public class ProductStorage {
         this.productID = productID;
     }
 
-    public String getName() {
-        return name;
+    public String getProduct() {
+        return product;
     }
 
-    public void setName(String name) {
-
-        this.name = name;
+    public void setProduct(String product) {
+        this.product = product;
     }
 
-    public int getPrice() {
-        return price;
+    public String getCondition() {
+        return condition;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
 
-    public int getMaximalAge() {
-        return maximalAge;
+    public String getOperator() {
+        return operator;
     }
 
-    public void setMaximalAge(int maximalAge) {
-        this.maximalAge = maximalAge;
+    public void setOperator(String operator) {
+        this.operator = operator;
     }
 
-    public int getMinimalAmount() {
-        return minimalAmount;
+    public int getValue() {
+        return value;
     }
 
-    public void setMinimalAmount(int minimalAmount) {
-        this.minimalAmount = minimalAmount;
-    }
-
-    public int getMaximalAmount() {
-        return maximalAmount;
-    }
-
-    public void setMaximalAmount(int maximalAmount) {
-        this.maximalAmount = maximalAmount;
+    public void setValue(int value) {
+        this.value = value;
     }
 }

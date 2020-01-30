@@ -1,0 +1,2 @@
+create product Test with condition age > 15
+create product Coucou with condition money < 500
