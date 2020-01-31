@@ -5,13 +5,6 @@ import org.polytech.al.project1920.catalog.model.ProductStorageDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-
 @Component
 public class CreateProductBean {
     private final ProductStorageDB productStorageDB;
@@ -21,17 +14,8 @@ public class CreateProductBean {
         this.productStorageDB = productStorageDB;
     }
 
-    public void parseFile() throws IOException {
-        List<String> lines = new ArrayList<>();
-
-        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("CreateProduct.txt");
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-
-        while (reader.ready()) {
-            String line = reader.readLine();
-            lines.add(line);
-        }
+    public void parseFile(String request) {
+        String[] lines = request.split("\n");
 
         for (String line : lines) {
             ProductStorage productStorage = new ProductStorage();
