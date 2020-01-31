@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
-
 @RestController
 public class CreateProduct implements ICreateProduct {
     private final CreateProductBean createProductBean;
@@ -21,6 +19,6 @@ public class CreateProduct implements ICreateProduct {
     @Override
     @RequestMapping(value = "/saveProducts", method = RequestMethod.POST)
     public void saveProducts(@RequestParam String request) {
-        createProductBean.parseFile(request);
+        createProductBean.saveProducts(request);
     }
 }

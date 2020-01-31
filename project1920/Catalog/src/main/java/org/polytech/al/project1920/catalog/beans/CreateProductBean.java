@@ -14,7 +14,7 @@ public class CreateProductBean {
         this.productStorageDB = productStorageDB;
     }
 
-    public void parseFile(String request) {
+    public void saveProducts(String request) {
         String[] lines = request.split("\n");
 
         for (String line : lines) {
