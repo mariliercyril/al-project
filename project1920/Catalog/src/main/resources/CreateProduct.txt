@@ -1,0 +1,2 @@
+create product PRODUIT with condition age > 15
+create product PRODUIT2 with condition money < 500
