@@ -2,18 +2,13 @@ package org.polytech.al.project1920.catalog.beans;
 
 import org.polytech.al.project1920.catalog.model.ProductStorage;
 import org.polytech.al.project1920.catalog.model.ProductStorageDB;
-import org.polytech.al.project1920.catalog.services.CreateProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,22 +24,15 @@ public class CreateProductBean {
     public void parseFile() throws IOException {
         List<String> lines = new ArrayList<>();
 
-        ClassLoader classLoader = CreateProduct.class.getClassLoader();
-        URL resource = classLoader.getResource("CreateProduct.txt");
+        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("CreateProduct.txt");
 
-        assert resource != null;
-        File file = new File(resource.getFile());
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
-        try (FileReader reader = new FileReader(file);
-             BufferedReader br = new BufferedReader(reader)) {
-
-            String line;
-            while ((line = br.readLine()) != null) {
-                lines.add(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        while (reader.ready()) {
+            String line = reader.readLine();
+            lines.add(line);
         }
+
         for (String line : lines) {
             ProductStorage productStorage = new ProductStorage();
             String[] splittedLine = line.split("\\s+");
@@ -59,9 +47,5 @@ public class CreateProductBean {
             productStorage.setValue(value);
             productStorageDB.save(productStorage);
         }
-
-        Path newFilePath = Paths.get("src/main/resources/CreateProduct.txt");
-        Files.deleteIfExists(newFilePath);
-        Files.createFile(newFilePath);
     }
 }

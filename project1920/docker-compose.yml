@@ -3,33 +3,44 @@
 version: "3"
 services:
   account:
-    build : ./Account
+    build: ./Account
     image: springio/account
     ports:
     - 8081:8081
     environment:
-      spring.data.mongodb.uri: mongodb+srv://server_user:{NOTTHEPASSWORD}@profiling-88zkw.mongodb.net/test?retryWrites=true&w=majority
+      spring.data.mongodb.uri: mongodb+srv://server_user:server_password@profiling-88zkw.mongodb.net/test?retryWrites=true&w=majority
       spring.data.mongodb.database: test
     container_name: account
 
   bank:
-    build : ./Bank
+    build: ./Bank
     image: springio/bank
     ports:
     - 8080:8080
     environment:
-      spring.data.mongodb.uri: mongodb+srv://server_user:{NOTTHEPASSWORD}@profiling-88zkw.mongodb.net/test?retryWrites=true&w=majority
+      spring.data.mongodb.uri: mongodb+srv://server_user:server_password@profiling-88zkw.mongodb.net/test?retryWrites=true&w=majority
       spring.data.mongodb.database: test
     container_name: bank
 
+  catalog:
+    build: ./Catalog
+    image: springio/catalog
+    ports:
+    - 8082:8082
+    environment:
+      spring.data.mongodb.uri: mongodb+srv://server_user:server_password@profiling-88zkw.mongodb.net/test?retryWrites=true&w=majority
+      spring.data.mongodb.database: test
+    container_name: catalog
+
+
   recommandation:
-    build : ./Recommandation
+    build: ./Recommandation
     image: python/recommandation
     ports:
     - 8000:80
     environment:
-      spring.data.mongodb.uri: mongodb+srv://server_user:{NOTTHEPASSWORD}@profiling-88zkw.mongodb.net/test?retryWrites=true&w=majority
+      spring.data.mongodb.uri: mongodb+srv://server_user:server_password@profiling-88zkw.mongodb.net/test?retryWrites=true&w=majority
       spring.data.mongodb.database: test
     depends_on:
-      - account
+    - account
     container_name: recommendation

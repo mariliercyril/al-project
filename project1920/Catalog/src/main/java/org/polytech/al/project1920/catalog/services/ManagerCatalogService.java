@@ -33,7 +33,7 @@ public class ManagerCatalogService implements IAddItem, IRetrieveProducts {
     }
 
     @Override
-    @GetMapping(path = "/products", consumes = "application/json", produces = "application/json")
+    @GetMapping(path = "/products", produces = "application/json")
     public List<ProductStorage> retrieveProducts() {
 
         return productStorageDB.findAll();
