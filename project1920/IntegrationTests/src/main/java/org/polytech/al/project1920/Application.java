@@ -23,4 +23,8 @@ public class Application {
 
         System.exit(0);
     }
+
+    public static void main2(String[] args){
+        PopulateDB.populate();
+    }
 }
