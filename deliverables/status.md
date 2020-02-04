@@ -1,5 +1,13 @@
 # V5 : MARKETING WEBSITE
 
+Week 06 ![flag](https://placehold.it/15/00ff00/000000?text=+)
+-
+
+* Cette semaine, nous avons fait des avancées dans le code. Nous avons terminé la mise en place du DSL basique, avancé grandement sur les fonctions Lambda AWS et nous avons peuplé nos bases de données pour entraîner notre modèle de recommandation.
+* Objectifs pour la semaine 7 : nous souhaitons avancer la mise en place des nouvelles fonctionnalités, notamment en commençant l'entraînement du modèle.
+* Nous rencontrons quelques difficultés techniques pour le moment car nous ne sommes pas familiers avec le machine learning, mais nous arrivons à progresser.
+
+
 Week 05 ![flag](https://placehold.it/15/ffff00/000000?text=+)
 -
 
