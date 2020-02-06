@@ -25,6 +25,10 @@ public class Application {
     }
 
     public static void main2(String[] args){
-        PopulateDB.populate();
+        PopulateDB.populate(500);
+    }
+
+    public void main3(String[] args){
+        PopulateDB.clear();
     }
 }

@@ -7,6 +7,7 @@ import org.bson.Document;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class PopulateDB {
 
@@ -16,17 +17,22 @@ public class PopulateDB {
     static MongoClient mongoClient = new MongoClient(uri);
     static MongoDatabase database = mongoClient.getDatabase("test");
 
-    static void populate(){
+    static void populate(int newClients){
+        Random random = new Random();
         List<Document> list = new ArrayList<>();
-        for(int x=0;x<2;x++){
+        for(int x=1;x<newClients+1;x++){
             Document a = new Document();
-            a.append("userId","Laurent"+x);
-            a.append("age",22*(1+x));
-            a.append("money",8000.0*(1+x));
+            a.append("userId","Client"+x);
+            a.append("age",random.nextInt(85)+15);
+            a.append("money",random.nextInt(100000)+100);
             a.append("password","nul");
             a.append("_class","org.polytech.al.project1920.useraccount.model.User");
             list.add(a);
         }
         database.getCollection("User").insertMany(list);
+    }
+
+    static void clear(){
+        database.drop();
     }
 }
