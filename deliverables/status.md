@@ -1,5 +1,12 @@
 # V5 : MARKETING WEBSITE
 
+Week 07 ![flag](https://placehold.it/15/ffff00/000000?text=+)
+-
+
+* Cette semaine, nous avons fait des avancées concernant les fonctions AWS (nous pouvons lire les données que nous générons pour entraîner un modèle)
+* Objectifs pour la semaine 8 : finaliser le code afin de préparer la démonstration.
+* Nous rencontrons des difficultés techniques avec AWS puisque notre offre ne permet pas d'entraîner un modèle. Nous cherchons donc une solution pour contourner ce problème (utiliser un modèle déjà entraîné par exemple).
+
 Week 06 ![flag](https://placehold.it/15/00ff00/000000?text=+)
 -
 
