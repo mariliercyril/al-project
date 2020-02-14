@@ -33,6 +33,6 @@ public class PopulateDB {
     }
 
     static void clear(){
-        database.drop();
+        database.getCollection("User").drop();
     }
 }
