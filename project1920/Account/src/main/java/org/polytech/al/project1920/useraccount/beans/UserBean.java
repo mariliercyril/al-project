@@ -43,7 +43,7 @@ public class UserBean {
 
     private void actualizeMoney(String userId) {
         RestTemplateBuilder builder = new RestTemplateBuilder();
-        String result = builder.build().getForObject("http://192.168.99.100:8080/getAmount?userId=" + userId, String.class);
+        String result = builder.build().getForObject("http://192.168.99.102:8080/getAmount?userId=" + userId, String.class);
 
         Optional<User> user = userDB.findUserByUserId(userId);
         if (result != null && user.isPresent()) {
@@ -52,20 +52,25 @@ public class UserBean {
         }
     }
 
-    public void prettyDump() {
+    public String prettyDump() {
         actualizeMoneyAllAccounts();
+
+        StringBuilder prettyDump = new StringBuilder();
+
         List<User> Users = userDB.findAll();
 
-        System.out.println("\n------ USERS PRETTY DUMP ------");
-        System.out.println("Here is the list of all existing accounts : \n");
+        prettyDump.append("\n------ USERS PRETTY DUMP ------").append("\n");
+        prettyDump.append("Here is the list of all existing accounts : \n");
         for (User user : Users) {
-            System.out.println("UserId : " + user.getUserId());
-            System.out.println("Password : " + user.getPassword());
-            System.out.println("Age : " + user.getAge());
-            System.out.println("Money on the related bank account : " + user.getMoney());
-            System.out.println();
+            prettyDump.append("\n").append("UserId : ").append(user.getUserId()).append("\n");
+            prettyDump.append("Password : ").append(user.getPassword()).append("\n");
+            prettyDump.append("Age : ").append(user.getAge()).append("\n");
+            prettyDump.append("Money on the related bank account : ").append(user.getMoney()).append("\n");
         }
 
-        System.out.println("\n------ END OF USERS PRETTY DUMP ------\n");
+        prettyDump.append("\n------ END OF USERS PRETTY DUMP ------\n");
+
+        System.out.println(prettyDump);
+        return prettyDump.toString();
     }
 }

@@ -11,5 +11,5 @@ public interface IExtractUserData {
 
     public User retrieveUserByMongoId(String id);
 
-    public void prettyDump();
+    public String prettyDump();
 }

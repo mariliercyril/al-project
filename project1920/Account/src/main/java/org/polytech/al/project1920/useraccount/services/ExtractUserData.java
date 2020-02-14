@@ -43,8 +43,8 @@ public class ExtractUserData implements IExtractUserData {
 
     @Override
     @RequestMapping(value = "/prettyDump", method = RequestMethod.GET)
-    public void prettyDump() {
-        userBean.prettyDump();
+    public String prettyDump() {
+        return userBean.prettyDump();
     }
 
     @RequestMapping(value = "/yo", method = RequestMethod.GET)

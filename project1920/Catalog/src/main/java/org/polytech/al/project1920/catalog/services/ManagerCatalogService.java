@@ -40,8 +40,8 @@ public class ManagerCatalogService implements IAddItem, IRetrieveProducts {
 
     @Override
     @RequestMapping(value = "/prettyDump", method = RequestMethod.GET)
-    public void prettyDump() {
-        productBean.prettyDump();
+    public String prettyDump() {
+        return productBean.prettyDump();
     }
 
 }

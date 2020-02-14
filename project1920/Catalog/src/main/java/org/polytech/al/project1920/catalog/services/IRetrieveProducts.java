@@ -7,6 +7,6 @@ import java.util.List;
 public interface IRetrieveProducts {
 
     List<ProductStorage> retrieveProducts();
-    void prettyDump();
+    String prettyDump();
 
 }

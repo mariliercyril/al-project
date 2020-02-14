@@ -35,17 +35,21 @@ public class ProductBean {
         }
     }
 
-    public void prettyDump() {
+    public String prettyDump() {
         List<ProductStorage> productStorages = productStorageDB.findAll();
 
-        System.out.println("\n------ PRODUCTS PRETTY DUMP ------");
-        System.out.println("Here is the list of products : \n");
+        StringBuilder prettyDump = new StringBuilder();
+
+        prettyDump.append("\n------ PRODUCTS PRETTY DUMP ------").append("\n");
+        prettyDump.append("Here is the list of products : \n");
         for (ProductStorage productStorage : productStorages) {
-            System.out.println("Product name : " + productStorage.getProduct());
-            System.out.println("Condition : " + productStorage.getCondition() + " " + productStorage.getOperator() + " " + productStorage.getValue());
-            System.out.println();
+            prettyDump.append("\n").append("Product name : ").append(productStorage.getProduct()).append("\n");
+            prettyDump.append("Condition : ").append(productStorage.getCondition()).append(" ").append(productStorage.getOperator()).append(" ").append(productStorage.getValue()).append("\n");
         }
 
-        System.out.println("\n------ END OF PRODUCTS PRETTY DUMP ------\n");
+        prettyDump.append("\n------ END OF PRODUCTS PRETTY DUMP ------\n");
+
+        System.out.println(prettyDump);
+        return prettyDump.toString();
     }
 }
