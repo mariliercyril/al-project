@@ -1,12 +1,10 @@
 package org.polytech.al.project1920.catalog.services;
 
+import org.polytech.al.project1920.catalog.beans.ProductBean;
 import org.polytech.al.project1920.catalog.model.ProductStorage;
 import org.polytech.al.project1920.catalog.model.ProductStorageDB;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,11 +12,12 @@ import java.util.List;
 public class ManagerCatalogService implements IAddItem, IRetrieveProducts {
 
     private final ProductStorageDB productStorageDB;
+    private final ProductBean productBean;
 
     @Autowired
-    public ManagerCatalogService(ProductStorageDB productStorageDB) {
-
+    public ManagerCatalogService(ProductStorageDB productStorageDB, ProductBean productBean) {
         this.productStorageDB = productStorageDB;
+        this.productBean = productBean;
     }
 
     @Override
@@ -37,6 +36,12 @@ public class ManagerCatalogService implements IAddItem, IRetrieveProducts {
     public List<ProductStorage> retrieveProducts() {
 
         return productStorageDB.findAll();
+    }
+
+    @Override
+    @RequestMapping(value = "/prettyDump", method = RequestMethod.GET)
+    public void prettyDump() {
+        productBean.prettyDump();
     }
 
 }

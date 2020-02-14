@@ -5,12 +5,14 @@ import org.polytech.al.project1920.catalog.model.ProductStorageDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
-public class CreateProductBean {
+public class ProductBean {
     private final ProductStorageDB productStorageDB;
 
     @Autowired
-    public CreateProductBean(ProductStorageDB productStorageDB) {
+    public ProductBean(ProductStorageDB productStorageDB) {
         this.productStorageDB = productStorageDB;
     }
 
@@ -31,5 +33,19 @@ public class CreateProductBean {
             productStorage.setValue(value);
             productStorageDB.save(productStorage);
         }
+    }
+
+    public void prettyDump() {
+        List<ProductStorage> productStorages = productStorageDB.findAll();
+
+        System.out.println("\n------ PRODUCTS PRETTY DUMP ------");
+        System.out.println("Here is the list of products : \n");
+        for (ProductStorage productStorage : productStorages) {
+            System.out.println("Product name : " + productStorage.getProduct());
+            System.out.println("Condition : " + productStorage.getCondition() + " " + productStorage.getOperator() + " " + productStorage.getValue());
+            System.out.println();
+        }
+
+        System.out.println("\n------ END OF PRODUCTS PRETTY DUMP ------\n");
     }
 }

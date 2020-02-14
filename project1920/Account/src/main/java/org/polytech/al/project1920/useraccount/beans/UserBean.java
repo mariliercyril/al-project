@@ -56,7 +56,7 @@ public class UserBean {
         actualizeMoneyAllAccounts();
         List<User> Users = userDB.findAll();
 
-        System.out.println("\n------ PRETTY DUMP ------");
+        System.out.println("\n------ USERS PRETTY DUMP ------");
         System.out.println("Here is the list of all existing accounts : \n");
         for (User user : Users) {
             System.out.println("UserId : " + user.getUserId());
@@ -66,6 +66,6 @@ public class UserBean {
             System.out.println();
         }
 
-        System.out.println("\n------ END OF PRETTY DUMP ------\n");
+        System.out.println("\n------ END OF USERS PRETTY DUMP ------\n");
     }
 }
