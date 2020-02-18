@@ -1,5 +1,12 @@
 # V5 : MARKETING WEBSITE
 
+Week 08 ![flag](https://placehold.it/15/00ff00/000000?text=+)
+-
+
+* Cette semaine, nous avons finalisé le code. A cause de difficultés techniques (version étudiante d'AWS empêchant d'entraîner un modèle), le modèle de recommandation est mocké, mais la façon de s'y connecter correspond à celle d'un vrai modèle.
+* Objectifs pour la semaine 9 : corriger les derniers petits bugs, prendre des mesures de temps complémentaires et continuer à préparer la démonstration.
+* Nous ne rencontrons pas de difficultés techniques pour le travail de cette semaine.
+
 Week 07 ![flag](https://placehold.it/15/ffff00/000000?text=+)
 -
 
