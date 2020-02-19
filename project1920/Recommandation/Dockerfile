@@ -9,6 +9,7 @@ RUN pip install gunicorn==19.9.0
 # Install falcon
 RUN pip install falcon
 RUN pip install requests
+RUN pip install requests
 
 # Add demo app
 COPY ./app /app

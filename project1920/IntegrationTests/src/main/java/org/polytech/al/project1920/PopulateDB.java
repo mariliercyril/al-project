@@ -12,7 +12,7 @@ import java.util.Random;
 public class PopulateDB {
 
     static MongoClientURI uri = new MongoClientURI(
-            "mongodb+srv://server_user:{NOT_THE_PASSWORD}@profiling-88zkw.mongodb.net/test?retryWrites=true&w=majority");
+            "mongodb+srv://server_user:server_password@profiling-88zkw.mongodb.net/test?retryWrites=true&w=majority");
 
     static MongoClient mongoClient = new MongoClient(uri);
     static MongoDatabase database = mongoClient.getDatabase("test");

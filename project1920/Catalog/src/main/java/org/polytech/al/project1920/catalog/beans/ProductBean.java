@@ -35,6 +35,16 @@ public class ProductBean {
         }
     }
 
+    public String getProducts() {
+        List<ProductStorage> productStorages = productStorageDB.findAll();
+        StringBuilder builder = new StringBuilder();
+        for (ProductStorage productStorage : productStorages) {
+            builder.append("\n").append("Product name : ").append(productStorage.getProduct()).append("\n");
+            builder.append("Condition : ").append(productStorage.getCondition()).append(" ").append(productStorage.getOperator()).append(" ").append(productStorage.getValue()).append("\n");
+        }
+        return builder.toString();
+    }
+
     public String prettyDump() {
         List<ProductStorage> productStorages = productStorageDB.findAll();
 

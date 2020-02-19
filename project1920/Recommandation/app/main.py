@@ -5,6 +5,7 @@ from wsgiref.simple_server import make_server
 
 import falcon
 import json
+import requests
 
 
 # Falcon follows the REST architectural style, meaning (among
@@ -30,20 +31,25 @@ class RequireJSON(object):
                     href='http://docs.examples.com/api/json')
 
         #id = req.get_param('id')
-        profiles = RetrieveProfile().ExtractUsersData()
-        for profile in profiles:
-            profile.addTag()
+        #profiles = RetrieveProfile().ExtractUsersData()
+        #for profile in profiles:
+        #    profile.addTag()
 
-        recommendations = Recommendation.RetrieveProfileAndCalculate(profiles)
+        #recommendations = Recommendation.RetrieveProfileAndCalculate(profiles)
 
-        resp.content_type = falcon.MEDIA_JSON
+        #resp.content_type = falcon.MEDIA_JSON
 
-        simples = []
-        for recommendation in recommendations:
-            simple = Simple(recommendation.profile.id, recommendation.recommendations)
-            simples.append(simple)
+        #simples = []
+        #for recommendation in recommendations:
+        #    simple = Simple(recommendation.profile.id, recommendation.recommendations)
+        #    simples.append(simple)
 
-        resp.body = json.dumps([simple.__dict__ for simple in simples])
+        url = "https://8yibsgfqyb.execute-api.us-east-1.amazonaws.com/default/testConnectionMongoDB"
+        payload = {}
+        headers= {}
+        response = requests.request("GET", url, headers=headers, data = payload)
+        print(response.text.encode('utf8'))
+        resp.body = response.text.encode('utf8')
         resp.status = falcon.HTTP_200
 
 

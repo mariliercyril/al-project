@@ -54,7 +54,7 @@ class Scenario2 {
         scanner.nextLine();
 
         //profiling action
-        System.out.println(Color.ANSI_GREEN + "Killian possède donc 12 300 euros.");
+        System.out.println(Color.ANSI_GREEN + "Killian possede donc 12 300 euros.");
         System.out.println(Color.ANSI_GREEN + "Le profileur a genere un profil pour Killian a partir de ses donnees.");
         System.out.println("Le module de recommandations recupere le profil genere par le profileur et le compare au catalogue." + Color.ANSI_RESET);
         scanner.nextLine();
