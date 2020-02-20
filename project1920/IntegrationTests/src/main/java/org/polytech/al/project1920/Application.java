@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 @SpringBootApplication
 public class Application {
 
-    public static void main2(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(Application.class, args);
 
         String uri = "http://192.168.99.100";
@@ -26,11 +26,12 @@ public class Application {
         System.exit(0);
     }
 
-    public static void main(String[] args){
-        PopulateDB.populate(300);
+    public static void main1(String[] args){
+        PopulateDB.populate(10);
     }
 
-    public void main3(String[] args){
-        PopulateDB.clear();
+    public static void maina(String[] args){
+        //PopulateDB.clear();
+        System.out.println(PopulateDB.countDatabase("Recomendation 19/2/2020 19:3:40"));
     }
 }

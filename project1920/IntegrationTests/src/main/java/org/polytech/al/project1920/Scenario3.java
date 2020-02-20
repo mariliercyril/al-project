@@ -70,8 +70,8 @@ class Scenario3 {
         System.out.println("Elle veut lancer une simulation pour voir si son produit est bien pris en compte.");
         scanner.nextLine();
         //lauchSimulation
-        //x = reco();
-        //System.out.println(x);
+        x = reco();
+        System.out.println(x);
         scanner.nextLine();
         System.out.println("Elle veut comparer les resultats de cette simulation aux anciens resultats");
         System.out.println("Elle cherche l'historique des recommandations");
@@ -86,6 +86,18 @@ class Scenario3 {
         scanner.nextLine();
         //System.out.println("Elle voit bien que son produit a ete recommande a certaines personnes");
         //scanner.nextLine();
+        System.out.println(Color.ANSI_CYAN + "--------------------------------------------------------------------");
+        System.out.println("                             Charge");
+        System.out.println("--------------------------------------------------------------------" + Color.ANSI_RESET);
+        scanner.nextLine();
+        System.out.println("Ajout 500 clients en BD");
+        PopulateDB.populate(500);
+        scanner.nextLine();
+        System.out.println("Lancer les recommandations");
+        scanner.nextLine();
+        x = reco();
+        System.out.println(x);
+        scanner.nextLine();
     }
 
     private String createProduct(String infos) {
@@ -160,7 +172,8 @@ class Scenario3 {
     private String reco() {
         String fullUri = REST_URI + ":8000/triggerRecommendation";
         System.out.println(Color.ANSI_BLUE + "REST/GET : " + fullUri + Color.ANSI_RESET);
-        return builder.build().getForObject(fullUri, String.class);
+        builder.build().getForObject(fullUri, String.class);
+        return "Recommendations started successfully";
     }
 
     private String createBankAccount(String id) {

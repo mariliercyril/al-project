@@ -1,15 +1,25 @@
 package org.polytech.al.project1920;
 
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class PopulateDB {
+
+    static Logger root = (Logger) LoggerFactory
+            .getLogger(Logger.ROOT_LOGGER_NAME);
+
+    static {
+        root.setLevel(Level.ERROR);
+    }
 
     static MongoClientURI uri = new MongoClientURI(
             "mongodb+srv://server_user:server_password@profiling-88zkw.mongodb.net/test?retryWrites=true&w=majority");
@@ -34,5 +44,9 @@ public class PopulateDB {
 
     static void clear(){
         database.getCollection("User").drop();
+    }
+
+    static long countDatabase(String s){
+        return database.getCollection(s).countDocuments();
     }
 }
